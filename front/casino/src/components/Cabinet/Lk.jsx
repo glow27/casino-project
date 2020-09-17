@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Main(props) {
+function Lk(props) {
     return (
         <div>
-           Онлайн казино
+            
         </div>
     );
 }
 
-export default Main;
+export default Lk;
