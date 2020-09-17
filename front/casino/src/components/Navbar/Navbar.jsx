@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 function Navbar(props) {
     return (
         <div>
-            <div>Казино "Стимулирующие Выплаты"</div>
-            <button>Личный кабинет</button>
+            <Link exect to="/">Главная</Link>
+            <Link to="/lk">Личный кабинет</Link>
         </div>
     );
 }
