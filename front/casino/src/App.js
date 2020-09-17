@@ -4,11 +4,12 @@ import Main from './components/Main/Main'
 import Lk from './components/Cabinet/Lk'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
+        <Navbar/>
         <Switch>
           <Route path="/lk">
             <Lk />
