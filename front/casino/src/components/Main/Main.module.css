@@ -1,0 +1,73 @@
+.all {
+  height: 100%;
+}
+
+.conteiner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: solid black 2px;
+  font-family: 'Balsamiq Sans', cursive;
+}
+
+/* Приветствие и вводная часть */
+
+.MainIntro {
+  padding-top: 3%;
+  text-align: center;
+}
+
+.text1 {
+  text-align: center;
+  font-size: 20px;
+}
+
+#a{
+  width: 80px;
+}
+
+/* Раздел с играми */
+
+.GamesIntro {
+  padding-top: 3%;
+  text-align: center;
+}
+
+.gamebox {
+  padding-top: 3%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* раздел с правилами */
+
+.RulesIntro {
+  padding-top: 3%;
+  text-align: center;
+}
+
+.rules {
+  display: flex;
+  flex-direction: column;
+}
+
+.rule {
+  font-size: 20px;
+}
+
+.CasinoRules {
+  text-align: center;
+}
+
+.games {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.RouletteRules {
+  text-align: center;
+}
+
+.PokerRules {
+  text-align: center;
+}
