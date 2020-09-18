@@ -8,9 +8,9 @@ function Main(props) {
   return (
     <>
       <div class="row">
-        <div className="col s12">
+        {/* <div className="col s12">
           For navbar
-        </div>
+        </div> */}
 
         <div className="col s2">3-columns (one-half)</div>
 
@@ -35,10 +35,10 @@ function Main(props) {
               <div>
                 <h2 className={style.GamesIntro}>Наши игры</h2>
                 <div className={style.gamebox}>
-                  <a class="waves-effect waves-light teal darken-4 btn-large">
+                  <a className="waves-effect waves-light teal darken-4 btn-large">
                     <i class="material-icons left">casino</i>Покер
                   </a>
-                  <a class="waves-effect waves-light teal darken-4 btn-large">
+                  <a className="waves-effect waves-light teal darken-4 btn-large" href="/roulette">
                     <i class="material-icons left">casino</i>Рулетка
                   </a>
                 </div>
