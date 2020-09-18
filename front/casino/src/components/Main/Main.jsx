@@ -79,9 +79,11 @@ function Main(props) {
             </div>
           </div>
         </div>
-
+       
         <div className="col s2">Переходите по ссылкам рекламы и получайте фишки!</div>
+        
       </div>
+      <p>&copy; 2020 Elbrus bootcamp</p>
     </>
   );
 }
