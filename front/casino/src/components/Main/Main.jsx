@@ -38,7 +38,7 @@ function Main(props) {
                   <a className="waves-effect waves-light teal darken-4 btn-large">
                     <i class="material-icons left">casino</i>Покер
                   </a>
-                  <a className="waves-effect waves-light teal darken-4 btn-large">
+                  <a className="waves-effect waves-light teal darken-4 btn-large" href="/roulette">
                     <i class="material-icons left">casino</i>Рулетка
                   </a>
                 </div>

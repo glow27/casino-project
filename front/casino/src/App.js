@@ -4,6 +4,8 @@ import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main'
 import Lk from './components/Cabinet/Lk'
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import Roulette from './components/Roulette/Roulette'
+
 
 function App() {
   return (
@@ -14,6 +16,9 @@ function App() {
         <Switch>
           <Route path="/lk">
             <Lk />
+          </Route>
+          <Route path="/roulette">
+            <Roulette />
           </Route>
           <Route path="/">
             <Main />
