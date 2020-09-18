@@ -1,7 +1,7 @@
 import express from 'express';
 
-import {middleWare} from './middleware/app.js';
-import {loginRouter} from './routes/login'
+import middleWare from './middleware/app.js';
+import loginRouter from './routes/login.js';
 
 const app = express();
 
