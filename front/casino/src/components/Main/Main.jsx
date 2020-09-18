@@ -7,10 +7,11 @@ import { Button, Card, Row, Col } from 'react-materialize';
 function Main(props) {
   return (
     <>
-      <div className="row">
-        <div className="col s12">
+
+      <div class="row">
+        {/* <div className="col s12">
           For navbar
-        </div>
+        </div> */}
 
         <div className="col s2">3-columns (one-half)</div>
 
@@ -36,10 +37,10 @@ function Main(props) {
                 <h2 className={style.GamesIntro}>Наши игры</h2>
                 <div className={style.gamebox}>
                   <a className="waves-effect waves-light teal darken-4 btn-large">
-                    <i className="material-icons left">casino</i>Покер
+                    <i class="material-icons left">casino</i>Покер
                   </a>
-                  <a className="waves-effect waves-light teal darken-4 btn-large">
-                    <i className="material-icons left">casino</i>Рулетка
+                  <a className="waves-effect waves-light teal darken-4 btn-large" href="/roulette">
+                    <i class="material-icons left">casino</i>Рулетка
                   </a>
                 </div>
               </div>
