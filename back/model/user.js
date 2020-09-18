@@ -5,6 +5,7 @@ const userSchema = new mongoose.Schema({
   points: Number,
   email: String,
   password: String,
+  vkID: String,
 });
 
 export default mongoose.model('User', userSchema);

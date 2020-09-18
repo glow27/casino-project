@@ -24,9 +24,10 @@ const middleWare = (app) => {
 
   app.use(cors())
   app.use(morgan('dev'));
-  app.use(express.urlencoded({ extended: true }));
+  // app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   app.use(cookieParser());
+  // app.use(express.static('???'))
   
   app.use(
     session({
