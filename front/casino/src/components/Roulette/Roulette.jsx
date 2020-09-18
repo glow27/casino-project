@@ -53,6 +53,7 @@ function Roulette() {
         <button
           onClick={() => {
             setTrigger(true);
+            setBtn('')
             setTimeout(function run() {
                 setBtn(spinNum(input)); 
                 setRandom('');
