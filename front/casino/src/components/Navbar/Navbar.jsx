@@ -5,12 +5,13 @@ import { Link } from 'react-router-dom';
 import style from './Navbar.module.css'
 
 
+
 function Navbar(props) {
 
   
 
     return (
- 
+
         <nav className={style.navbar}>
         <div >
           <ul >
@@ -19,7 +20,7 @@ function Navbar(props) {
          </ul>
         </div>
       </nav>
-    );
+    )
 }
 
 export default Navbar;
