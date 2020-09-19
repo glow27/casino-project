@@ -24,6 +24,7 @@ function App() {
         </div>
       </div>
     </BrowserRouter>
+
   );
 }
 function Home(){
