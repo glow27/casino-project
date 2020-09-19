@@ -1,5 +1,7 @@
 import React,{useRef,useEffect} from 'react'
 import { TweenMax, TimelineLite, Power3 } from "gsap";
+import './Login.sass'
+import '../../App.scss'
 function Login(){
   let menu = useRef(null);
   let tl = new TimelineLite();
@@ -7,7 +9,7 @@ function Login(){
   useEffect(() => {
     TweenMax.to(menu, 0, { css: { visibility: "visible" } });
    tl.from(menu, 1.2, {y:1280, ease: Power3.easeOut})
-     .from(menu, 1.5,{scale: 1.4, ease: Power3.easeOut}, 1)
+     .from(menu, 1.5,{scale: 1.4, ease: Power3.easeOut}, .2)
   });
   return (<>
   <div>
