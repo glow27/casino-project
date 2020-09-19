@@ -2,7 +2,7 @@ import { LOGIN, LOGOUT } from './actionTypes';
 
 export const login = (user) => ({
   type: LOGIN,
-  payload: {name: user.name, email: user.email, points: user.points},
+  payload: user,
 });
 
 export const logout = (user) => ({

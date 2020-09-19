@@ -3,8 +3,11 @@ import style from './Main.module.css';
 
 import 'materialize-css';
 import { Button, Card, Row, Col } from 'react-materialize';
+import { useSelector } from 'react-redux';
 
-function Main(props) {
+function Main() {
+  const user = useSelector(state => state.auth)
+  console.log(user);
   return (
     <>
       <div className="row">

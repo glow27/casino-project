@@ -2,8 +2,9 @@ import React from 'react';
 import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
 import Lk from './components/Cabinet/Lk';
-import { Login } from './components/Auth/Login';
-import { Register } from './components/Auth/Register';
+import { Login } from './components/AuthTest/Login';
+
+import { Register } from './components/AuthTest/Register';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
+          {/* <Route exact path="/logout">
+            <Logout />
+          </Route> */}
           <Route path="/lk">
             <Lk />
           </Route>
