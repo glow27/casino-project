@@ -1,43 +1,43 @@
 import React,{useRef,useEffect} from 'react'
 import { TweenMax, TimelineLite, Power3 } from "gsap";
-import './Login.sass'
-import '../../App.scss'
+
 function Login(){
-  let menu = useRef(null);
-  let tl = new TimelineLite();
+  let login = useRef(null);
+  let tl = new TimelineLite({delay: .8});
  
   useEffect(() => {
-    TweenMax.to(menu, 0, { css: { visibility: "visible" } });
-   tl.from(menu, 1.2, {y:1280, ease: Power3.easeOut})
-     .from(menu, 1.5,{scale: 1.4, ease: Power3.easeOut}, .2)
-  });
+
+    TweenMax.to(login, 0, { css: { visibility: "visible" } });
+   tl.from(login, 1.2, {y:1280, ease: Power3.easeOut}, 'Start')
+     .from(login, 1.5,{scale: 1.4, ease: Power3.easeOut}, .1)
+
+  },[tl]);
   return (<>
   <div>
       <div >
-        <div className="Menu" ref={(el) => (menu = el)}>
-          <div >
+        <div className="Login" ref={(el) => (login = el)}>
+          <div className="vod">
             <div className="input-container">
               <input type="text" placeholder="Имя пользователя" />
               <i className="zmdi zmdi-account zmdi-hc-lg"></i>
             </div>
 
-            <div className="input-container">
+            <div className="input-container2">
               <input type="email" placeholder="Email" />
               <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
             </div>
 
-            <button
-              style={{ color: "black", backgroundColor: "rgb(98, 23, 8)" }}
-              className="signin"
+            <button className="signin"
               type="submit"
             >
               Войти
             </button>
             <div>
-               <button className="yandex"></button>
+              
+               <a href="#"className="yandex" type="submit"></a>
             </div>
            <div>
-              <button className="vk"></button>
+              <a href="#"className="vk" type="submit"></a>
            </div>
            
           </div>

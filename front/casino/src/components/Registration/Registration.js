@@ -11,8 +11,8 @@ function Registration(){
   <>
       <div>
       <div >
-        <div className="Menu2" ref={(el) => (menu2 = el)}>
-          <div >
+        <div className="Registr" ref={(el) => (menu2 = el)}>
+          <div className= "reg" >
             <div className="input-container">
               <input type="text" placeholder="Имя пользователя" />
               <i className="zmdi zmdi-account zmdi-hc-lg"></i>
@@ -29,8 +29,7 @@ function Registration(){
             </div>
 
             <button
-              style={{ color: "black", backgroundColor: "rgb(98, 23, 8)" }}
-              className="registr"
+              className="registration"
               type="submit"
             >
               Регистрация
