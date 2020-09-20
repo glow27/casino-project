@@ -10,7 +10,7 @@ import {
   handleHoverExit,
   staggerRevealClose
 } from "../Animation/Animation";
-import {logout} from '../../redux/actionCreator'
+import {userLogout} from '../../redux/actionCreator'
 
 const Hamburger = ({ state }) => {
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const Hamburger = ({ state }) => {
   
   
   const handleClick = async () => {
-    dispatch(logout())
+    dispatch(userLogout())
     const respons = await fetch('http://localhost:4000/login/close', {
       method: 'POST',
       body: JSON.stringify(user),
@@ -93,7 +93,7 @@ const Hamburger = ({ state }) => {
                       ref={el => (line2 = el)}
                       onClick={handleClick}
                       to="#">
-                      Exit
+                      Выйти
                     </Link>
                     </li>  <li>
                     <Link
