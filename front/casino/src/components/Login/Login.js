@@ -3,7 +3,9 @@ import { TweenMax, TimelineLite, Power3 } from "gsap";
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/actionCreator';
-import axios from 'axios'
+import './Login.sass'
+import '../../App.scss'
+
 
 function Login(){
   const dispatch = useDispatch();

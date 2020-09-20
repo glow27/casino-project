@@ -28,20 +28,5 @@ function App() {
 
   );
 }
-// function Home(){
-//   return <>
-//   </>
-// }
-function Demo(){
-  return <>
-  </>
-}
-// function Login(){
-//   return <>
-//   </>
-// }
-// function Registration(){
-//   return <>
-//   </>
-// }
+
 export default App;
