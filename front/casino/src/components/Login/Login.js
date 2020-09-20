@@ -39,57 +39,48 @@ function Login(){
   };
 
   let menu = useRef(null);
+  let login = useRef(null);
   let tl = new TimelineLite();
  
   useEffect(() => {
-    TweenMax.to(menu, 0, { css: { visibility: "visible" } });
-   tl.from(menu, 1.2, {y:1280, ease: Power3.easeOut})
-     .from(menu, 1.5,{scale: 1.4, ease: Power3.easeOut}, 1)
+    TweenMax.to(login, 0, { css: { visibility: "visible" } });
+   tl.from(login, 1.2, {y:1280, ease: Power3.easeOut})
+     .from(login, 1.5,{scale: 1.4, ease: Power3.easeOut}, 1)
   });
-  return (<>
-  <div>
+  return (
+  
   
       <div >
-        <div className="Menu" ref={(el) => (menu = el)}>
-        <form onSubmit={handleClick}> 
-          <div >
-
+        <div className="Login" ref={(el) => (login = el)}>
+          <div className="vod">
             <div className="input-container">
               <input name="email" type="email" placeholder="Email" required />
               <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
             </div>
 
-            <div className="input-container">
-              <input name="password" type="password" placeholder="пароль" required/>
-              <i className="zmdi zmdi-account zmdi-hc-lg"></i>
+            <div className="input-container2">
+              <input type="email" placeholder="Email" />
+              <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
             </div>
 
-            <button
-              style={{ color: "black", backgroundColor: "rgb(98, 23, 8)" }}
-              className="signin"
+            <button className="signin"
               type="submit"
             >
               Войти
             </button>
-            
-           
-          </div>
-          </form>
-          <div>
-               <button className="yandex">Yand</button>
+            <div>
+              
+               <a href="#"className="yandex" type="submit"></a>
             </div>
            <div>
-           {/* onSubmit={(e) => handleVK(e)} */}
-              <form  action='http://localhost:4000/login/vkontakte'>
-    <input type="submit" value="VKVKVKVKVKVk" />
-</form>
+              <a href="#"className="vk" type="submit"></a>
            </div>
         </div>
        
       </div>
       
     </div>
-    </>
+    
   )
  
 }
