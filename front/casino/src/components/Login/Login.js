@@ -1,8 +1,47 @@
-import React,{useRef,useEffect} from 'react'
+import React,{useRef,useEffect, useState} from 'react'
 import { TweenMax, TimelineLite, Power3 } from "gsap";
+
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/actionCreator';
+
+
 import './Login.sass'
 import '../../App.scss'
+
 function Login(){
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const [error, setError] = useState(false);
+
+  // const handleVK = async (e) => {
+  //   e.preventDefault();
+
+  //   const response = await fetch('http://localhost:4000/login/vkontakte');
+    
+  // }
+
+  const handleClick = async (e) => {
+    
+    e.preventDefault();
+    const { email, password } = e.target;
+    const respons = await fetch('http://localhost:4000/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: email.value,
+        password: password.value,
+      }),
+      headers: { 'Content-type': 'Application/json' },
+    });
+    const user = await respons.json();
+    const {name, points, _id} = user;
+    if (respons.status === 200) {
+      dispatch(login({ name, points, _id, auth: true }));
+      return history.push('/');
+    }
+    return setError('Ошибка!');
+  };
+
   let menu = useRef(null);
   let tl = new TimelineLite();
  
@@ -13,17 +52,20 @@ function Login(){
   });
   return (<>
   <div>
+  
       <div >
         <div className="Menu" ref={(el) => (menu = el)}>
+        <form onSubmit={handleClick}> 
           <div >
+
             <div className="input-container">
-              <input type="text" placeholder="Имя пользователя" />
-              <i className="zmdi zmdi-account zmdi-hc-lg"></i>
+              <input name="email" type="email" placeholder="Email" required />
+              <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
             </div>
 
             <div className="input-container">
-              <input type="email" placeholder="Email" />
-              <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
+              <input name="password" type="password" placeholder="пароль" required/>
+              <i className="zmdi zmdi-account zmdi-hc-lg"></i>
             </div>
 
             <button
@@ -33,16 +75,23 @@ function Login(){
             >
               Войти
             </button>
-            <div>
-               <button className="yandex"></button>
-            </div>
-           <div>
-              <button className="vk"></button>
-           </div>
+            
            
           </div>
+          </form>
+          <div>
+               <button className="yandex">Yand</button>
+            </div>
+           <div>
+           {/* onSubmit={(e) => handleVK(e)} */}
+              <form  action='http://localhost:4000/login/vkontakte'>
+    <input type="submit" value="VKVKVKVKVKVk" />
+</form>
+           </div>
         </div>
+       
       </div>
+      
     </div>
     </>
   )
