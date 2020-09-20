@@ -7,7 +7,7 @@ function Login(){
  
   useEffect(() => {
 
-    TweenMax.to(login, 0, { css: { visibility: "visible" } });
+    TweenMax.to(login, 0, { css: { visibility: "visible" } })
    tl.from(login, 1.2, {y:1280, ease: Power3.easeOut}, 'Start')
      .from(login, 1.5,{scale: 1.4, ease: Power3.easeOut}, .1)
 
