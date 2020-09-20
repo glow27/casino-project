@@ -1,11 +1,12 @@
 import React,{useRef,useEffect, useState} from 'react'
 import { TweenMax, TimelineLite, Power3 } from "gsap";
+
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../redux/actionCreator';
 
-import '../../App.scss';
-
+import './Login.sass'
+import '../../App.scss'
 
 function Login(){
   
