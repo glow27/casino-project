@@ -9,9 +9,8 @@ import passport from 'passport';
 import {default as connectMongo} from 'connect-mongo';
 import casinoPassport from './passport.js';
 
-
 const middleWare = (app) => {
-
+  app.use(cors());
   
   const MongoStore = connectMongo(session);
   dotenv.config();
@@ -22,7 +21,7 @@ const middleWare = (app) => {
     useUnifiedTopology: true,
   });
 
-  app.use(cors())
+  
   app.use(morgan('dev'));
   // app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
@@ -31,7 +30,7 @@ const middleWare = (app) => {
   
   app.use(
     session({
-      store: new MongoStore({ mongooseConnection: mongoose.connection, secret: 'squirrel' }),
+      store: new MongoStore({ mongooseConnection: mongoose.connection, secret: 'squirrel', ttl: 60 }),
       secret: process.env.SESSION_KEY,
       resave: false,
       saveUninitialized: false,
