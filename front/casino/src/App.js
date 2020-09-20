@@ -2,6 +2,7 @@ import React from "react";
 import "./App.scss";
 import Header from "./components/Header/Header"
 import Login from "./components/Login/Login"
+import Home from "./components/Home/Home"
 import Registration from "./components/Registration/Registration"
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
@@ -27,10 +28,10 @@ function App() {
 
   );
 }
-function Home(){
-  return <>
-  </>
-}
+// function Home(){
+//   return <>
+//   </>
+// }
 function Demo(){
   return <>
   </>

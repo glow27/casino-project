@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600,800&display=swap");
-
-$red: rgb(208, 0, 0);
+@import url('https://fonts.googleapis.com/css?family=Dosis:300');
+$red: linear-gradient(160deg, rgb(16, 88, 35) 50%, rgb(18, 81, 39) 50%);
 $black: rgb(6, 5, 5);
 
 html,
@@ -21,8 +21,9 @@ body {
   position: fixed;
   top: 0;
   left: 0;
+
   cursor: url(black_29.png), auto;
- 
+background: linear-gradient(10deg, rgb(16, 88, 35) 50%, rgb(18, 81, 39) 50%);
 }
 a{
   cursor: url(black_29.png), auto;
@@ -51,12 +52,128 @@ a{
         font-size: 36px;
         font-weight: 600;
         padding-right: 360px;
-        color:rgb(255, 255, 255);
+        color:rgb(173, 9, 9);
       }
     }
   }
 }
+.vod{
+  margin-bottom: 100px;
+}
+.Registr{
+  visibility: hidden;
+  background:rgb(16, 0, 43);
+  height: 410px;
+  width: 540px;
+  margin: auto;
+  border-radius: 30px;
+  box-shadow: 0px 4px 30px -5px rgba(0,0,0,0.65);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Login{
+  visibility: hidden;
+  background:rgb(16, 0, 43);
+  height: 410px;
+  width: 540px;
+  margin: auto;
+  border-radius: 30px;
+  box-shadow: 0px 4px 30px -5px rgba(0,0,0,0.65);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input-container{
+position: relative;
+margin-bottom: 30px;
+width: 340px;
 
+.input-container{
+  width: 80%;
+  margin-bottom: 40px;
+}
+}
+input{
+font-family: 'Dosis', sans-serif;
+letter-spacing: 1.3px;
+box-sizing: border-box;
+background: transparent;width: 100%;
+border: none;
+border-bottom: 1px solid rgb(16, 0, 43);
+color: olive;
+padding: 12px 6px 12px 36px;
+font-size: 27px;
+outline: none;
+caret-color: rgv(229, 91, 141);
+}
+input:focus{
+  border-bottom: 1px solid transparent;
+  border-image: fill;
+  border-image-slice: 1
+}
+input:focus + i{
+  color: gold;
+}
+::placeholder {
+  color: bisque;
+  opacity: .4;
+}
+i{
+  color: bisque;
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color .3s;
+}
+.signin{
+  font-family: 'Dosis', sans-serif;
+  letter-spacing: 1.3px;
+  background:rgb(253, 231, 76);
+  width:160px;
+  height: 50px;
+  border-radius: 30px;
+  top: 260px;
+  right: 195px;
+  position: absolute;
+  font-size: 18px;
+}
+.registration{
+  font-family: 'Dosis', sans-serif;
+  letter-spacing: 1.3px;
+  background:rgb(253, 231, 76);
+  width:160px;
+  height: 50px;
+  border-radius: 30px;
+  top: 335px;
+  right: 195px;
+  position: absolute;
+  font-size: 18px;
+}
+.yandex{
+  width: 128px;
+  height: 128px;
+  border-radius: 5px;
+  top: 295px;
+  right: 160px;
+  position: absolute;
+  background-image: url(ya.png);
+}
+
+.vk{
+  width: 59px;
+  height: 54px;
+  border-radius: 6px;
+  top: 331px;
+  left: 190px;
+  position: absolute;
+  background-image: url(vk.png);
+
+
+}
 header {
   height: 100px;
   .inner-header {
