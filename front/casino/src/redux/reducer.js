@@ -5,7 +5,7 @@ export default function(state, action) {
     case LOGIN: 
       return action.payload;
     case LOGOUT:
-      return 
+      return {...state, auth: false}
   
     default:
       return state;

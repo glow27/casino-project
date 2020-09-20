@@ -1,7 +1,7 @@
 import React, {useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import { Link } from 'react-router-dom'
-
+import { useDispatch, useSelector } from 'react-redux';
 import {
   staggerText,
   staggerReveal,
@@ -10,8 +10,23 @@ import {
   handleHoverExit,
   staggerRevealClose
 } from "../Animation/Animation";
+import {logout} from '../../redux/actionCreator'
 
 const Hamburger = ({ state }) => {
+  const dispatch = useDispatch();
+  const user = useSelector(state => state);
+  console.log(user.auth);
+  
+  
+  const handleClick = async () => {
+    dispatch(logout())
+    const respons = await fetch('http://localhost:4000/login/close', {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: { 'Content-type': 'Application/json' },
+    })
+  }
+
   // Создаются переменные для узлов дома
   let menuLayer = useRef(null);
   let reveal1 = useRef(null);
@@ -61,7 +76,7 @@ const Hamburger = ({ state }) => {
           <div className='wrapper'>
             <div className='menu-links'>
               <nav>
-                <ul>
+              <ul>
                   <li>
                     <Link
                       onMouseEnter={e => handleHover(e)}
@@ -71,7 +86,24 @@ const Hamburger = ({ state }) => {
                       Демо
                     </Link>
                   </li>
-                  <li>
+                  {user.auth ? <><li>
+                    <Link
+                      onMouseEnter={e => handleHover(e)}
+                      onMouseOut={e => handleHoverExit(e)}
+                      ref={el => (line2 = el)}
+                      onClick={handleClick}
+                      to="#">
+                      Exit
+                    </Link>
+                    </li>  <li>
+                    <Link
+                      onMouseEnter={e => handleHover(e)}
+                      onMouseOut={e => handleHoverExit(e)}
+                      ref={el => (line3 = el)}
+                      to='/lk'>
+                      Профиль
+                    </Link>
+                    </li> </>: <><li>
                     <Link
                       onMouseEnter={e => handleHover(e)}
                       onMouseOut={e => handleHoverExit(e)}
@@ -88,7 +120,9 @@ const Hamburger = ({ state }) => {
                       to='/registration'>
                       Регистрация
                     </Link>
-                  </li>
+                    </li></>}
+                  
+                  
                 </ul>
               </nav>
               <div ref={el => (info = el)} className='info'>
