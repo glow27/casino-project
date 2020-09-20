@@ -83,7 +83,7 @@ const Hamburger = ({ state }) => {
                       onMouseOut={e => handleHoverExit(e)}
                       ref={el => (line1 = el)}
                       to='/demo'>
-                      Дэмо
+                      Демо
                     </Link>
                   </li>
                   {user.auth ? <><li>
@@ -127,6 +127,9 @@ const Hamburger = ({ state }) => {
               </nav>
               <div ref={el => (info = el)} className='info'>
                 <h2> Правила:</h2>
+                 <div>
+                   <img className="img"></img>
+                 </div>
                 <p>
                 
                 </p>

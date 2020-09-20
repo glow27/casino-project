@@ -1,9 +1,13 @@
 import React,{useRef,useEffect, useState} from 'react'
 import { TweenMax, TimelineLite, Power3 } from "gsap";
+
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/actionCreator';
-import axios from 'axios'
+
+
+import './Login.sass'
+import '../../App.scss'
 
 function Login(){
   const dispatch = useDispatch();
@@ -44,7 +48,7 @@ function Login(){
   useEffect(() => {
     TweenMax.to(menu, 0, { css: { visibility: "visible" } });
    tl.from(menu, 1.2, {y:1280, ease: Power3.easeOut})
-     .from(menu, 1.5,{scale: 1.4, ease: Power3.easeOut}, 1)
+     .from(menu, 1.5,{scale: 1.4, ease: Power3.easeOut}, .2)
   });
   return (<>
   <div>
