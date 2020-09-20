@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 function Registration() {
   const history = useHistory();
   const [error, setError] = useState(false);
+
   const handleClick = async (e) => {
     e.preventDefault();
     const { email, password, name } = e.target;
@@ -35,9 +36,10 @@ function Registration() {
     
       <div >
         <div className="Registr" ref={(el) => (menu2 = el)}>
+          <form onSubmit={(e) => {handleClick(e)}}>
           <div className= "reg" >
             <div className="input-container">
-              <input type="text" placeholder="Имя пользователя" />
+              <input name="name" type="text" placeholder="Имя пользователя" />
               <i className="zmdi zmdi-account zmdi-hc-lg"></i>
             </div>
 
@@ -64,7 +66,7 @@ function Registration() {
             </button>
    
           </div>
-      
+          </form>
       </div>
       </div>
   );

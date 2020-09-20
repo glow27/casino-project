@@ -1,13 +1,15 @@
 import React,{useRef,useEffect, useState} from 'react'
 import { TweenMax, TimelineLite, Power3 } from "gsap";
+
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { login } from '../../redux/actionCreator';
+import { userLogin } from '../../redux/actionCreator';
+
 import './Login.sass'
 import '../../App.scss'
 
-
 function Login(){
+  
   const dispatch = useDispatch();
   const history = useHistory();
   const [error, setError] = useState(false);
@@ -18,6 +20,13 @@ function Login(){
   //   const response = await fetch('http://localhost:4000/login/vkontakte');
     
   // }
+
+  const handleYand = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch('http://localhost:4000/login/yandex');
+    
+  }
 
   const handleClick = async (e) => {
     
@@ -33,14 +42,15 @@ function Login(){
     });
     const user = await respons.json();
     const {name, points, _id} = user;
+    console.log(user);
     if (respons.status === 200) {
-      dispatch(login({ name, points, _id, auth: true }));
+      dispatch(userLogin({ name, points, _id, auth: true }))
       return history.push('/');
     }
     return setError('Ошибка!');
   };
 
-  let menu = useRef(null);
+  
   let login = useRef(null);
   let tl = new TimelineLite();
  
@@ -53,15 +63,17 @@ function Login(){
   
   
       <div >
+        
         <div className="Login" ref={(el) => (login = el)}>
           <div className="vod">
+          <form onSubmit={(e) => handleClick(e)}>
             <div className="input-container">
               <input name="email" type="email" placeholder="Email" required />
               <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
             </div>
 
             <div className="input-container2">
-              <input type="email" placeholder="Email" />
+              <input name="password" type="password" placeholder="password" required/>
               <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
             </div>
 
@@ -70,12 +82,15 @@ function Login(){
             >
               Войти
             </button>
+            </form>
             <div>
-              
-               <a href="#"className="yandex" type="submit"></a>
+              <a href="#" onClick={(e)=> {handleYand(e)}} className="yandex" type="submit"></a>
+               {/* <a href="http://localhost:4000/login/yandex" className="yandex" type="submit"></a> */}
             </div>
            <div>
-              <a href="#"className="vk" type="submit"></a>
+             
+              {/* <a href="#" onClick={(e)=> {handleVK(e)}} className="vk" type="submit"></a> */}
+              <a href='http://localhost:4000/login/vkontakte'  className="vk" type="submit"></a>
            </div>
         </div>
        
