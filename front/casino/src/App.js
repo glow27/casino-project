@@ -5,7 +5,8 @@ import Header from "./components/Header/Header";
 import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 import Welcome from './components/Welcome/welcome'
-import Demo from './components/Demo/Demo'
+import Demo from './components/Demo/Demo';
+import Info from './components/Info/Info';
 import Registration from "./components/Registration/Registration";
 
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
@@ -25,6 +26,9 @@ function App() {
                 
                 <Route path="/welcome">
                   <Welcome/>
+                </Route>
+                <Route exact path="/casino/soccerbet">
+                  <Info/>
                 </Route>
 
                 <Route exact path="/login" component={Login} />
