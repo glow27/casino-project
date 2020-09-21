@@ -1,10 +1,13 @@
 import React from "react";
 import "./App.scss";
-import Header from "./components/Header/Header"
-import Login from "./components/Login/Login"
-import Home from "./components/Home/Home"
-// import Demo from "./components/Demo/Demo"
-import Registration from "./components/Registration/Registration"
+
+import Header from "./components/Header/Header";
+import Login from "./components/Login/Login";
+import Home from "./components/Home/Home";
+import Welcome from './components/Welcome/welcome'
+import Demo from './components/Demo/Demo'
+import Registration from "./components/Registration/Registration";
+
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 function App() {
@@ -17,7 +20,13 @@ function App() {
             <div className="home">
               <Switch>
                 <Route exact path="/" component={Home} />
-                {/* <Route exact path="/demo" component={Demo} /> */}
+
+                <Route exact path="/demo" />
+                
+                <Route path="/welcome">
+                  <Welcome/>
+                </Route>
+
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/registration" component={Registration} />
               </Switch>
@@ -27,23 +36,8 @@ function App() {
       </div>
     </BrowserRouter>
 
->>>>>>> albert
+
   );
 }
-// function Home(){
-//   return <>
-//   </>
-// }
-// function Demo(){
-//   return <>
-//   </>
-// }
-// function Login(){
-//   return <>
-//   </>
-// }
-// function Registration(){
-//   return <>
-//   </>
-// }
+
 export default App;

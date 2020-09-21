@@ -2,7 +2,7 @@ import express from 'express';
 import passport from 'passport';
 import bcrypt from 'bcrypt';
 import User from '../model/user.js';
-import {userLoggedOut} from '../middleware/checkAuth.js';
+import { userLoggedOut } from '../middleware/checkAuth.js';
 
 const router = express.Router();
 
@@ -39,7 +39,13 @@ router.post('/new', userLoggedOut, async (req, res) => {
   return res.end();
 });
 
-router.get('/vkontakte', userLoggedOut, passport.authenticate('vkontakte', { scope: ['email'] }));
+router.get(
+  '/vkontakte',
+  userLoggedOut,
+  passport.authenticate('vkontakte', { scope: ['email'] })
+);
+
+router.get('/yandex', userLoggedOut, passport.authenticate('yandex'));
 
 router.get(
   '/vkontakte/callback',
@@ -47,15 +53,26 @@ router.get(
     failureRedirect: 'http://localhost:3000/login',
   }),
   (req, res) => {
-    console.log(req.user)
-    
-    res.redirect('http://localhost:3000/');
+    console.log(req.user);
+
+    res.redirect('http://localhost:3000');
   }
 );
 
-router.get('/close', userLoggedOut, (req, res) => {
+router.get('/yandex/callback', 
+  passport.authenticate('yandex', { failureRedirect: 'http://localhost:3000/login' }),
+  (req, res) => {
+    console.log(req.user);
+
+    res.redirect('http://localhost:3000');
+  });
+
+router.post('/close', userLoggedOut, async (req, res) => {
+  const user = await User.findById(req.body._id);
+  user.points = req.body.points;
+  user.save();
   req.logout();
   return res.end();
 });
 
-export default router
+export default router;
