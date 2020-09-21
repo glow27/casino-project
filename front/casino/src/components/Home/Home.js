@@ -29,13 +29,13 @@ function Home() {
       {
         duration:1,
         rotationY:360,
-        animationIterationCount:'infinite',
         ease: Power3.easeOut,
+
       }).to(secondCube,{
         duration:1,
         rotationY:-360,
         ease: Power3.easeOut
-      })
+      }).repeat(5)
     // tl.to(
     //   firstCube,
     //   3,
