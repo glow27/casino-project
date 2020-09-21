@@ -2,6 +2,11 @@
 import React, { useRef, useEffect } from "react";
 import { TweenMax, TimelineLite, Power3 } from "gsap";
 function Demo() {
+  
+  const handleClick = (e) => {
+    
+  }
+
   let warning = useRef(null);
   let tl = new TimelineLite();
   useEffect(() => {
@@ -18,11 +23,13 @@ function Demo() {
               <h3 className= "useprognoz">
                  За использование прогнозов взимается 10 баллов
               </h3>
-              <button className="cancel" type="submit">
-                Отменить
+              <button className="cancel" type="submit"><a href="/">
+                Отменить</a>
               </button>
-              <button className="continue" type="submit">
-                Продолжить
+              <button className="continue" type="submit"><a href="#" onClick={(e) => {
+                handleClick(e)
+              }}>
+                Продолжить</a>
               </button>
             </div>
           </div>
