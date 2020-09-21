@@ -1,3 +1,4 @@
+
 import React, { useRef, useEffect, useState } from "react";
 import { TweenMax, TimelineLite, Power3 } from "gsap";
 
@@ -5,7 +6,9 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userLogin } from "../../redux/actionCreator";
 
+
 import "../../App.scss";
+
 
 function Login() {
   const dispatch = useDispatch();
@@ -28,7 +31,9 @@ function Login() {
     console.log(user);
     if (respons.status === 200) {
       dispatch(userLogin({ name, points, _id, auth: true }));
-      return history.push("/");
+
+      return history.push('/');
+
     }
     return setError("Ошибка!");
   };
@@ -37,8 +42,10 @@ function Login() {
   let tl = new TimelineLite({ delay: 0.8 });
 
   useEffect(() => {
-    TweenMax.to(login, 0, { css: { visibility: "visible" } });
-    tl.from(login, 1.2, { y: 1280, ease: Power3.easeOut }, "Start").from(
+
+    TweenMax.to(login, 0, { css: { visibility: 'visible' } });
+    tl.from(login, 1.2, { y: 1280, ease: Power3.easeOut }, 'Start').from(
+
       login,
       1.5,
       { scale: 1.4, ease: Power3.easeOut },
