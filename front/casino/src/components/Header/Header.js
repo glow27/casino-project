@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux';
 import { withRouter, Link } from "react-router-dom";
 import Hamburger from '../Hamburger/Hamburger';
 
 const Header = ({history}) => {
+  const auth = useSelector(state => state.auth)
+  const points = useSelector(state => state.points)
 const [state, setState] = useState({
   initial: false,
   clicked: null,
@@ -47,6 +50,7 @@ return (
         <div className="inner-header">
           <div className="logo">
             <Link to="/">Главная</Link>
+            {auth && <p>Ваш счет: {points}</p>}
           </div>
           <div className="menu">
             <button disabled={disabled} onClick={handleMenu}>
