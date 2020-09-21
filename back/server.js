@@ -2,12 +2,14 @@ import express from 'express';
 
 import middleWare from './middleware/app.js';
 import loginRouter from './routes/login.js';
+import casinoRouter from './routes/casino.js';
 
 const app = express();
 
 middleWare(app);
 
 app.use('/login', loginRouter);
+app.use('/casino', casinoRouter);
 
 const PORT = process.env.PORT || 4000;
 
