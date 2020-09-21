@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,600,800&display=swap");
 @import url('https://fonts.googleapis.com/css?family=Dosis:300');
-$red: linear-gradient(160deg, rgb(16, 88, 35) 50%, rgb(18, 81, 39) 50%);
+@import url('https://fonts.googleapis.com/css2?family=Play&display=swap');
+$red: linear-gradient(170deg, rgb(16, 88, 35) 50vh, rgb(18, 81, 39) 50vh);
 $black: rgb(6, 5, 5);
 
 html,
 body {
   li{
-    cursor: url(black_29.png), auto;
+    cursor: url(black_29.png)
   }
   padding: 0;
   margin: 0;
@@ -23,12 +24,15 @@ body {
   z-index: 1;
   width: 100%;
   height: 100%;
-  position: fixed;
+  position: absolute;
+  overflow: hidden;
+
+  
   top: 0;
   left: 0;
 
+  background: linear-gradient(160deg, rgb(13, 40, 24) 50vh, rgb(4, 71, 28) 50vh);
   cursor: url(black_29.png), auto;
-background: linear-gradient(10deg, rgb(13, 40, 24) 50%, rgb(4, 71, 28) 50%);
 }
 a{
   cursor: url(black_29.png), auto;
@@ -86,6 +90,56 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.Warning{
+  visibility: hidden;
+  background:rgb(157, 29, 29);
+  height: 290px;
+  width: 440px;
+  margin: auto;
+  border-radius: 30px;
+  box-shadow: 0px 4px 30px -5px rgba(0,0,0,0.65);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.apl{
+  font-family: 'Play', sans-serif;;
+  // margin-bottom: 30px;
+  margin-left: 110px;
+}
+.useprognoz{
+  margin-left: 50px;
+  margin-top: 10px;
+  font-family: 'Play', sans-serif;;
+  font-size: 35px;
+  margin-bottom: 80px;
+}
+.cancel{
+  font-family: 'Dosis', sans-serif;
+  letter-spacing: 1.3px;
+  background:rgb(240, 240, 239);
+  width:160px;
+  height: 50px;
+  border-radius: 30px;
+  top: 220px;
+  left: 40px;
+  position: absolute;
+  font-size: 18px;
+}
+.continue{
+  font-family: 'Dosis', sans-serif;
+  letter-spacing: 1.3px;
+  background:rgb(240, 240, 239);
+  
+  width:160px;
+  height: 50px;
+  border-radius: 30px;
+  top: 220px;
+  right: 40px;
+  position: absolute;
+  font-size: 18px;
 }
 .Login{
   visibility: hidden;
