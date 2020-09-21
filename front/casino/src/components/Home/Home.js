@@ -23,19 +23,21 @@ function Home() {
         delay: 0.3,
       },
       0.15,
-      "Start"
+      'Start'
     );
     tl.to(firstCube,
       {
         duration:1,
+        // rotation:360,
         rotationY:360,
         ease: Power3.easeOut,
 
-      }).to(secondCube,{
+      },'Start').to(secondCube,{
         duration:1,
+        // rotation:-360,
         rotationY:-360,
         ease: Power3.easeOut
-      }).repeat(5)
+      },'Start')
     // tl.to(
     //   firstCube,
     //   3,
