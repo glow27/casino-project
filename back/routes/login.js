@@ -12,6 +12,7 @@ router.post('/', userLoggedOut, async (req, res, next) => {
       return next(err);
     }
     if (!user) {
+      console.log('ok');
       return res.status(401).end();
     }
     req.login(user, (err) => {
