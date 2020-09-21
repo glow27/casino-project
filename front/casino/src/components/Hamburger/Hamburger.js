@@ -83,7 +83,9 @@ const Hamburger = ({ state }) => {
                       onMouseOut={e => handleHoverExit(e)}
                       ref={el => (line1 = el)}
                       to='/demo'>
-                      Демо
+
+                      Прогнозы
+
                     </Link>
                   </li>
                   {user.auth ? <><li>

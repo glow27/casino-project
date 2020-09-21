@@ -1,12 +1,14 @@
 import React,{useRef,useEffect, useState} from 'react'
 import { TweenMax, TimelineLite, Power3 } from "gsap";
 
+
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../redux/actionCreator';
 
 
 import '../../App.scss'
+
 
 function Login(){
   
@@ -42,16 +44,19 @@ function Login(){
 
   
   let login = useRef(null);
-  let tl = new TimelineLite();
+  let tl = new TimelineLite({delay: .8});
  
   useEffect(() => {
-    TweenMax.to(login, 0, { css: { visibility: "visible" } });
-   tl.from(login, 1.2, {y:1280, ease: Power3.easeOut})
-     .from(login, 1.5,{scale: 1.4, ease: Power3.easeOut}, 1)
-  });
-  return (
-  
-  
+
+
+    TweenMax.to(login, 0, { css: { visibility: "visible" } })
+   tl.from(login, 1.2, {y:1280, ease: Power3.easeOut}, 'Start')
+     .from(login, 1.5,{scale: 1.4, ease: Power3.easeOut}, .1)
+
+  },[tl]);
+  return (<>
+  <div>
+
       <div >
         
         <div className="Login" ref={(el) => (login = el)}>
