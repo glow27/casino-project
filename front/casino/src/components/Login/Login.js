@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../redux/actionCreator';
 
-import './Login.sass'
+
 import '../../App.scss'
 
 function Login(){
@@ -14,19 +14,9 @@ function Login(){
   const history = useHistory();
   const [error, setError] = useState(false);
 
-  // const handleVK = async (e) => {
-  //   e.preventDefault();
+  
 
-  //   const response = await fetch('http://localhost:4000/login/vkontakte');
-    
-  // }
-
-  const handleYand = async (e) => {
-    e.preventDefault();
-
-    const response = await fetch('http://localhost:4000/login/yandex');
-    
-  }
+  
 
   const handleClick = async (e) => {
     
@@ -84,13 +74,13 @@ function Login(){
             </button>
             </form>
             <div>
-              <a href="#" onClick={(e)=> {handleYand(e)}} className="yandex" type="submit"></a>
-               {/* <a href="http://localhost:4000/login/yandex" className="yandex" type="submit"></a> */}
+              
+               <a href="http://localhost:4000/login/yandex" className="yandex" type="submit"></a>
             </div>
            <div>
              
-              {/* <a href="#" onClick={(e)=> {handleVK(e)}} className="vk" type="submit"></a> */}
-              <a href='http://localhost:4000/login/vkontakte'  className="vk" type="submit"></a>
+            
+              <a href='http://localhost:4000/login/vkontakte' className="vk" type="submit"></a>
            </div>
         </div>
        
