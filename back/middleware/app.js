@@ -11,11 +11,9 @@ import casinoPassport from './passport.js';
 
 const middleWare = (app) => {
   app.use(cors());
-  
-  const MongoStore = connectMongo(session);
   dotenv.config();
+  const MongoStore = connectMongo(session);
   
-
   mongoose.connect('mongodb://localhost/Finale', {
     useNewUrlParser: true,
     useUnifiedTopology: true,

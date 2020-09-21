@@ -1,3 +1,5 @@
 .info {
-  color: white;
+  color:white;
+  display: flex;
+  flex-wrap: wrap;
 }

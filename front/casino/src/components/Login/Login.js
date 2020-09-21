@@ -26,16 +26,24 @@ function Login() {
       }),
       headers: { "Content-type": "Application/json" },
     });
-    const user = await respons.json();
-    const { name, points, _id } = user;
-    console.log(user);
+    if (respons.status === 401) {
+      setError("Ошибка!");
+
+      return history.push('/registration');
+
+    }
+    
+    
     if (respons.status === 200) {
+      const user = await respons.json();
+    const { name, points, _id } = user;
       dispatch(userLogin({ name, points, _id, auth: true }));
 
       return history.push('/');
 
     }
-    return setError("Ошибка!");
+    
+    
   };
 
   let login = useRef(null);
