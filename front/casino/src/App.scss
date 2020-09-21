@@ -22,15 +22,15 @@ body {
 .App{
   // text-align: center;
   z-index: 1;
-  width: 100%;
-  height: 100%;
+  width: 100em;
+  height: 100em;
   position: absolute;
-  overflow: hidden;
+  // overflow: hidden;
 
   
   top: 0;
   left: 0;
-
+// background: rgb(13, 40, 24);
   background: linear-gradient(160deg, rgb(13, 40, 24) 50vh, rgb(4, 71, 28) 50vh);
   cursor: url(black_29.png), auto;
 }
