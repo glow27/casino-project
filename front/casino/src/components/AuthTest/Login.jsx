@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { login } from '../../redux/actionCreator';
 
 export const Login = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [error, setError] = useState(false);
 
@@ -16,10 +19,12 @@ export const Login = () => {
       }),
       headers: { 'Content-type': 'Application/json' },
     });
-    console.log(respons);
+    const user = await respons.json();
+    const {name, points, _id} = user;
     if (respons.status === 200) {
+      dispatch(login({ name, points, _id, auth: true }));
       return history.push('/');
-    };
+    }
     return setError('Ошибка!');
   };
 
@@ -33,7 +38,10 @@ export const Login = () => {
       </form>
       <div class="divider"></div>
       <div class="section">
-        <a href="http://localhost:4000/login/vkontakte" class="btn blue darken-1">
+        <a
+          href="http://localhost:4000/login/vkontakte"
+          class="btn blue darken-1"
+        >
           <i class="fab fa-vk left"></i>Login with VK
         </a>
       </div>

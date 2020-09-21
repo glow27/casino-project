@@ -2,10 +2,11 @@ import express from 'express';
 import passport from 'passport';
 import bcrypt from 'bcrypt';
 import User from '../model/user.js';
+import {userLoggedOut} from '../middleware/checkAuth.js';
 
 const router = express.Router();
 
-router.post('/', async (req, res, next) => {
+router.post('/', userLoggedOut, async (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) {
       return next(err);
@@ -17,12 +18,12 @@ router.post('/', async (req, res, next) => {
       if (err) {
         return next(err);
       }
-      return res.end();
+      return res.json(user);
     });
   })(req, res, next);
 });
 
-router.post('/new', async (req, res) => {
+router.post('/new', userLoggedOut, async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (user) {
     return res.status(401).end();
@@ -38,7 +39,7 @@ router.post('/new', async (req, res) => {
   return res.end();
 });
 
-router.get('/vkontakte', passport.authenticate('vkontakte', { scope: ['email'] }));
+router.get('/vkontakte', userLoggedOut, passport.authenticate('vkontakte', { scope: ['email'] }));
 
 router.get(
   '/vkontakte/callback',
@@ -52,9 +53,9 @@ router.get(
   }
 );
 
-router.get('/close', (req, res) => {
+router.get('/close', userLoggedOut, (req, res) => {
   req.logout();
-  return res.status(401).end();
+  return res.end();
 });
 
 export default router

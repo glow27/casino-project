@@ -7,7 +7,7 @@ import cors from 'cors';
 import session from 'express-session';
 import passport from 'passport';
 import {default as connectMongo} from 'connect-mongo';
-import funfun from './passport.js';
+import casinoPassport from './passport.js';
 
 
 const middleWare = (app) => {
@@ -42,7 +42,7 @@ const middleWare = (app) => {
   
   app.use(passport.initialize());
   app.use(passport.session());
-  funfun(passport);
+  casinoPassport(passport);
 
 };
 
