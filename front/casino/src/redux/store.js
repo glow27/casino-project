@@ -8,7 +8,7 @@ const initialState = JSON.parse(preloadedState);
 
 export const store = createStore(rootReducer, initialState, composeWithDevTools());
 
-// store.subscribe(() => {
-//   const state = store.getState();
-//   window.localStorage.setItem('state', JSON.stringify(state));
-// });
+store.subscribe(() => {
+  const state = store.getState();
+  window.localStorage.setItem('state', JSON.stringify(state));
+});
