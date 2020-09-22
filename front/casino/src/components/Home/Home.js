@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from "react";
 import { TweenMax, TimelineLite, Power3 } from "gsap";
 import cubeLeft from "./images/cube1.png";
 import cubeRight from "./images/cube2.png";
+import slot from "./images/slot.png";
+import Roulette from "../Roulette/Roulette";
 function Home() {
   let app = useRef(null);
   let content = useRef(null);
@@ -23,28 +25,34 @@ function Home() {
         delay: 0.3,
       },
       0.15,
-      'Start'
+      "Start"
     );
-    tl.to(firstCube,
+    tl.to(
+      firstCube,
       {
-        duration:1,
+        duration: 1,
         // rotation:360,
-        rotationY:360,
+        rotationY: 360,
         ease: Power3.easeOut,
-
-      },'Start').to(secondCube,{
-        duration:1,
+      },
+      "Start"
+    ).to(
+      secondCube,
+      {
+        duration: 1,
         // rotation:-360,
-        rotationY:-360,
-        ease: Power3.easeOut
-      },'Start')
+        rotationY: -360,
+        ease: Power3.easeOut,
+      },
+      "Start"
+    );
     // tl.to(
     //   firstCube,
     //   3,
     //   { rotationY: 360 },
     //   { x: 50, ease: Power3.easeOut },
     //   "Start"
-    // ).to(secondCube, 
+    // ).to(secondCube,
     // 3, { rotationY: -360 },
     //  { x: 50, ease: Power3.easeOut });
   });
@@ -78,6 +86,14 @@ function Home() {
                 <div className="hero-image boy">
                   <img src={cubeRight} alt="boy" />
                 </div>
+              </div>
+            </div>
+            <div className="slot-machine">
+              <div className="slot">
+                <img src={slot} alt="slot" />
+              </div>
+              <div className="roulette">
+              <Roulette/>
               </div>
             </div>
           </div>
