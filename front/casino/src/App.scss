@@ -15,7 +15,7 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 .hero {
- margin: auto;
+  margin: auto;
   visibility: hidden;
   height: 100vh;
 }
@@ -24,7 +24,7 @@ body {
   z-index: 1;
   width: 100em;
   height: 100em;
-  position: absolute;
+  position: fixed;
   // overflow: hidden;
 
   
@@ -416,6 +416,11 @@ header {
   }
 }
 
+.slot-machine{
+  position: absolute;
+  top: 160px;
+  right: 270px;
+}
 @keyframes backgroundEffect {
   0% {
     background-position: 0% 0%;
