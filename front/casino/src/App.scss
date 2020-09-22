@@ -27,7 +27,7 @@ body {
   z-index: 1;
   width: 100%;
   height: 100em;
-  // position: fixed;
+  position: fixed;
   // overflow: hidden;
 
   
@@ -347,11 +347,18 @@ header {
             }
           }
           .info {
+            // position: absolute;
             color: #fff;
             width: 300px;
+            font-size: 23px;
+            font-family: 'Play', sans-serif;
+            text-shadow: 4px 4px 4px black;
+            right: 50px;
             h2 {
-              font-size: 1.2rem;
-              margin: 8px auto;
+              
+              font-size: 3rem;
+              margin: 17px auto;
+              text-shadow: 4px 4px 4px black;
             
             }
             p {

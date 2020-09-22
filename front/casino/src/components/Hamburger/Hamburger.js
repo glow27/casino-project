@@ -156,17 +156,20 @@ const Hamburger = ({ state }) => {
                 </ul>
               </nav>
               <div ref={(el) => (info = el)} className="info">
-                <h2> Правила:</h2>
+              
                 <ul>
-                  <li className="rule1">За регистрацию вы получите 30 фишек</li>
-                  <li className="rule2">
-                    {" "}
+                <div className="rules">
+                <h2> Правила:</h2>
+                </div>
+                  <div className="rule1">За регистрацию вы получите 30 фишек</div>
+                  <div className="rule2">
+                    
                     За вход в казино раз в день вы получите 10 фишек
-                  </li>
-                  <li className="rule3">
-                    {" "}
+                  </div>
+                  <div className="rule3">
+                   
                     При переходе на рекламное объявление вы получите 2 фишки
-                  </li>
+                  </div>
                 </ul>
               </div>
             </div>
