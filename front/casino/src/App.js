@@ -9,9 +9,10 @@ import Welcome from './components/Welcome/welcome'
 import Demo from './components/Demo/Demo';
 import Info from './components/Info/Info';
 import Registration from "./components/Registration/Registration";
-
+import Roulette2 from "./components/Roulette2/Roulette2";
 
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import Roulette from "./components/Roulette/Roulette";
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
                 <Route exact path="/casino/soccerbet">
                   <Info/>
                 </Route>
-
+                <Route exact path="/roulette" component={Roulette2} />
 
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/registration" component={Registration} />
