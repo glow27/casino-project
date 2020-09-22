@@ -7,30 +7,28 @@ import cors from 'cors';
 import session from 'express-session';
 import passport from 'passport';
 import {default as connectMongo} from 'connect-mongo';
-import funfun from './passport.js';
-
+import casinoPassport from './passport.js';
 
 const middleWare = (app) => {
-
-  
-  const MongoStore = connectMongo(session);
+  app.use(cors());
   dotenv.config();
+  const MongoStore = connectMongo(session);
   
-
   mongoose.connect('mongodb://localhost/Finale', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
 
-  app.use(cors())
+  
   app.use(morgan('dev'));
-  app.use(express.urlencoded({ extended: true }));
+  // app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
   app.use(cookieParser());
+  // app.use(express.static('???'))
   
   app.use(
     session({
-      store: new MongoStore({ mongooseConnection: mongoose.connection, secret: 'squirrel' }),
+      store: new MongoStore({ mongooseConnection: mongoose.connection, secret: 'squirrel', ttl: 60 }),
       secret: process.env.SESSION_KEY,
       resave: false,
       saveUninitialized: false,
@@ -41,7 +39,7 @@ const middleWare = (app) => {
   
   app.use(passport.initialize());
   app.use(passport.session());
-  funfun(passport);
+  casinoPassport(passport);
 
 };
 
