@@ -36,6 +36,7 @@ const Hamburger = ({ state }) => {
   let line1 = useRef(null);
   let line2 = useRef(null);
   let line3 = useRef(null);
+  let line4 = useRef(null);
   let info = useRef(null);
 
   useEffect(() => {
@@ -61,7 +62,7 @@ const Hamburger = ({ state }) => {
       });
       staggerReveal(reveal1, reveal2);
       fadeInUp(info);
-      staggerText(line1, line2, line3);
+      staggerText(line1, line2, line3, line4);
     }
   }, [state]);
 
@@ -91,6 +92,30 @@ const Hamburger = ({ state }) => {
                       Прогнозы
                     </Link>
                   </li>
+<<<<<<< HEAD
+                  <li>
+                    <Link
+                      onMouseEnter={e => handleHover(e)}
+                      onMouseOut={e => handleHoverExit(e)}
+                      ref={el => (line3 = el)}
+                      to='/registration'>
+                      Регистрация
+                    </Link>
+                    <li>
+                    <Link
+                      onMouseEnter={e => handleHover(e)}
+                      onMouseOut={e => handleHoverExit(e)}
+                      ref={el => (line4 = el)}
+                      to='/roulette'>
+
+                      Рулетка
+
+                    </Link>
+                  </li>
+                    </li></>}
+                  
+                  
+=======
                   {user.auth ? (
                     <>
                      <li>
@@ -151,6 +176,7 @@ const Hamburger = ({ state }) => {
                     
                     </>
                   )}
+>>>>>>> 33da496a393e05f76ad3bfb4187b25cb20f8bb52
                 </ul>
               </nav>
               <div ref={(el) => (info = el)} className="info">
