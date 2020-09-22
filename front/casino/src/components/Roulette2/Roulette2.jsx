@@ -16,9 +16,9 @@ function Roulette() {
 
   useEffect(() => {
     if (trigger) {
-      var interval = setInterval(() => {
+      var interval = setInterval(async () => {
         i += 1;
-        console.log(random);
+        console.log(await random);
         setRandom(() => [
           Math.floor(Math.random() * (5 - 1 + 1)) + 1,
           Math.floor(Math.random() * (5 - 1 + 1)) + 1,
@@ -56,16 +56,18 @@ function Roulette() {
         {random}
         <div>Крутите рулетку собирайте комбинации!</div>
         <button
-          onClick={() => {
+          onClick={async () => {
             setTrigger(true);
-            setTimeout(async function run() {
+            await setTimeout(async function run() {
                 // setRandom([
                 //     Math.floor(Math.random() * (5 - 1 + 1)) + 1,
                 //     Math.floor(Math.random() * (5 - 1 + 1)) + 1,
                 //     Math.floor(Math.random() * (5 - 1 + 1)) + 1,
                 //   ]);
-              setResult(spinNum(random));
+                // await spinNum(random)
+              setResult(await spinNum(random));
             }, 10300);
+        // setResult(random)
           }}
         >
           Испытать удачу!
