@@ -9,12 +9,12 @@ const Header = ({history}) => {
 const [state, setState] = useState({
   initial: false,
   clicked: null,
-  menuName: "Меню"
+  menuName: "MENU"
 });
 const [disabled, setDisabled] = useState(false);
 useEffect(() => {
   history.listen(() => {
-      setState({clicked: false, menuName: "Меню"});
+      setState({clicked: false, menuName: "MENU"});
   });
 },[history]);
 const handleMenu = () => {
@@ -23,17 +23,17 @@ const handleMenu = () => {
     setState({
       initial:null,
       clicked: true,
-      menuName: "Закрыть"
+      menuName: "CLOSE"
     });
   } else if (state.clicked === true){
     setState({
       clicked: !state.clicked,
-      menuName: "Меню"
+      menuName: "MENU"
     });
   } else if (state.clicked === false){
     setState({
       clicked: !state.clicked,
-      menuName: "Закрыть"
+      menuName: "CLOSE"
     })
   }
 }
@@ -49,7 +49,7 @@ return (
       <div className="wrapper">
         <div className="inner-header">
           <div className="logo">
-            <Link to="/">Главная</Link>
+            <Link to="/">MAIN</Link>
             {auth && <p>Ваш счет: {points}</p>}
           </div>
           <div className="menu">

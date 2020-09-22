@@ -8,8 +8,11 @@ function Home() {
   let app = useRef(null);
   let content = useRef(null);
   let images = useRef(null);
+  let machine = useRef(null)
+  
   let tl = new TimelineLite({ delay: 0.3 });
   useEffect(() => {
+    const slot = machine.firstElementChild;
     const firstCube = images.firstElementChild;
     const secondCube = images.lastElementChild;
     const headlineFirst = content.children[0].children[0];
@@ -17,7 +20,7 @@ function Home() {
     const headlineThird = headlineSecond.nextSibling;
     TweenMax.to(app, 0, { css: { visibility: "visible" } });
     tl.staggerFrom(
-      [headlineFirst.children, headlineSecond.children, headlineThird.children],
+      [headlineFirst.children, headlineSecond.children, headlineThird.children, ],
       1,
       {
         y: 100,
@@ -30,7 +33,7 @@ function Home() {
     tl.to(
       firstCube,
       {
-        duration: 1,
+        duration: 4,
         // rotation:360,
         rotationY: 360,
         ease: Power3.easeOut,
@@ -39,13 +42,26 @@ function Home() {
     ).to(
       secondCube,
       {
-        duration: 1,
+        duration: 4,
+        
         // rotation:-360,
         rotationY: -360,
         ease: Power3.easeOut,
       },
       "Start"
-    );
+    )
+    tl.to(firstCube,
+      1,
+      { rotation: 360 },
+      { x: 50, ease: Power3.easeOut },
+      "Start"
+    ).to(secondCube,
+      1,
+      { rotation: -360 },
+      { x: 50, ease: Power3.easeOut },
+      )
+    tl.from(slot, 1.2, {y:1200, ease: Power3.easeOut}, "Start")
+    
     // tl.to(
     //   firstCube,
     //   3,
@@ -88,14 +104,16 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="slot-machine">
+        <div className= "slot-image" ref={el=> machine = el}>
+            <div className="slot-machine"  >
               <div className="slot">
                 <img src={slot} alt="slot" />
               </div>
               <div className="roulette">
               <Roulette/>
               </div>
-            </div>
+           </div>
+         </div>
           </div>
         </div>
       </div>

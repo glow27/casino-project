@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState, useEffect } from "react";
+import result from "./images/result.png";
 function Roulette() {
-  const [input, setInput] = useState('');
-  const [btn, setBtn] = useState('');
-  let [random, setRandom] = useState('');
+  const [input, setInput] = useState("");
+  const [btn, setBtn] = useState("");
+  let [random, setRandom] = useState("");
   const [trigger, setTrigger] = useState(false);
   let num = 0;
   let i = 0;
@@ -43,26 +43,39 @@ function Roulette() {
   return (
     <>
       <div>
-        <div>Введите число от одного до десяти.</div>
+        <div className="textinput">Enter a number from 1 to 10</div>
         <input
+          className="inputnumber"
           type="input"
           value={input}
-          onChange={e => setInput(e.target.value)}
+          onChange={(e) => setInput(e.target.value)}
         ></input>
         <button
+          className="button-lucky"
           onClick={() => {
             setTrigger(true);
-            setBtn('')
+            setBtn("");
             setTimeout(function run() {
-                setBtn(spinNum(input)); 
-                setRandom('');
-              }, 10500);
+              setBtn(spinNum(input));
+              setRandom("");
+            }, 10500);
           }}
         >
-          Испытать удачу!
+          Quick spin
         </button>
       </div>
-      <div>{random}{btn}</div>
+      <div>
+        <div className="random">
+          {random}
+        </div>
+        <div className="inputpicture">
+          <img src={result} alt="result" />
+        </div>
+
+        <div className="result">
+          <img src={btn} alt="number"/>
+        </div>
+      </div>
     </>
   );
 }
