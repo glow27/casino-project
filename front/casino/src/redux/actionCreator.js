@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, ADD_POINTS, SUBSTRACT_POINTS } from './actionTypes';
+import { LOGIN, LOGOUT, ADD_POINTS, SUBSTRACT_POINTS, GET_SPIN } from './actionTypes';
 
 export const userLogout = () => ({
   type: LOGOUT,
@@ -17,4 +17,11 @@ export const plusPoints = (points) => ({
 export const minusPoints = (points) => ({
   type: SUBSTRACT_POINTS,
   payload: points,
+});
+
+export const spinRoulette = () => ({
+  type: GET_SPIN,
+  payload: [Math.floor(Math.random() * (5 - 1 + 1)) + 1,
+    Math.floor(Math.random() * (5 - 1 + 1)) + 1,
+    Math.floor(Math.random() * (5 - 1 + 1)) + 1]
 });

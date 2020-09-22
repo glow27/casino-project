@@ -7,7 +7,6 @@ function Roulette() {
   const [trigger, setTrigger] = useState(false);
   let num = 0;
   let i = 0;
-  function test() {}
   useEffect(() => {
     if (trigger) {
       var interval = setInterval(() => {

@@ -92,30 +92,7 @@ const Hamburger = ({ state }) => {
                       Прогнозы
                     </Link>
                   </li>
-<<<<<<< HEAD
-                  <li>
-                    <Link
-                      onMouseEnter={e => handleHover(e)}
-                      onMouseOut={e => handleHoverExit(e)}
-                      ref={el => (line3 = el)}
-                      to='/registration'>
-                      Регистрация
-                    </Link>
-                    <li>
-                    <Link
-                      onMouseEnter={e => handleHover(e)}
-                      onMouseOut={e => handleHoverExit(e)}
-                      ref={el => (line4 = el)}
-                      to='/roulette'>
 
-                      Рулетка
-
-                    </Link>
-                  </li>
-                    </li></>}
-                  
-                  
-=======
                   {user.auth ? (
                     <>
                       <li>
@@ -174,7 +151,6 @@ const Hamburger = ({ state }) => {
                       </li>
                     </>
                   )}
->>>>>>> 33da496a393e05f76ad3bfb4187b25cb20f8bb52
                 </ul>
               </nav>
               <div ref={(el) => (info = el)} className="info">
