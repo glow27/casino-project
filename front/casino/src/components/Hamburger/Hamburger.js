@@ -118,6 +118,26 @@ const Hamburger = ({ state }) => {
 =======
                   {user.auth ? (
                     <>
+                     <li>
+                        <Link
+                          onMouseEnter={(e) => handleHover(e)}
+                          onMouseOut={(e) => handleHoverExit(e)}
+                          ref={(el) => (line3 = el)}
+                          to="/roulette"
+                        >
+                           Рулетка
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          onMouseEnter={(e) => handleHover(e)}
+                          onMouseOut={(e) => handleHoverExit(e)}
+                          ref={(el) => (line3 = el)}
+                          to="/lk"
+                        >
+                          Профиль
+                        </Link>
+                      </li>{" "}
                       <li>
                         <Link
                           onMouseEnter={(e) => handleHover(e)}
@@ -129,16 +149,7 @@ const Hamburger = ({ state }) => {
                           Выйти
                         </Link>
                       </li>{" "}
-                      <li>
-                        <Link
-                          onMouseEnter={(e) => handleHover(e)}
-                          onMouseOut={(e) => handleHoverExit(e)}
-                          ref={(el) => (line3 = el)}
-                          to="/lk"
-                        >
-                          Профиль
-                        </Link>
-                      </li>{" "}
+                    
                     </>
                   ) : (
                     <>
@@ -162,16 +173,7 @@ const Hamburger = ({ state }) => {
                           Регистрация
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          onMouseEnter={(e) => handleHover(e)}
-                          onMouseOut={(e) => handleHoverExit(e)}
-                          ref={(el) => (line3 = el)}
-                          to="/roulette"
-                        >
-                           Рулетка
-                        </Link>
-                      </li>
+                    
                     </>
                   )}
 >>>>>>> 33da496a393e05f76ad3bfb4187b25cb20f8bb52
