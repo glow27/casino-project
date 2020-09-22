@@ -35,9 +35,9 @@ function Roulette() {
     num = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
 
     if (input == num) {
-      return `You won! The number 5 fell out ${num}`;
+      return `You won! The number fell out ${num}`;
     } else {
-      return `You lost! The number 5 fell out ${num}`;
+      return `You lost! The number fell out ${num}`;
     }
   }
 
