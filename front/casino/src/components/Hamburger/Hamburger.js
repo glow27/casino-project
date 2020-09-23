@@ -38,7 +38,7 @@ const Hamburger = ({ state }) => {
   let line3 = useRef(null);
   let line4 = useRef(null);
   let info = useRef(null);
-
+  
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     //  Если меню открыто и мы нажимаем на кнопку меню чтобы закрыть его
@@ -65,7 +65,9 @@ const Hamburger = ({ state }) => {
       staggerText(line1, line2, line3, line4);
     }
   }, [state]);
-
+ useEffect(()=>{
+   
+ })
   return (
     <div ref={(el) => (menuLayer = el)} className="hamburger-menu">
       <div
