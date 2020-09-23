@@ -30,10 +30,11 @@ function Welcome() {
 
   }
 
-  return <div>
-   <h1>Рот этого казино вас приветствует!</h1>
-       <button><a href="#" onClick={(e) => {handleClick(e)}}>Пуститься во все тяжкие</a></button>
+  return <div style={{ display: "flex", flexDirection: 'column', alignItems: 'center'}}>
+   <h2 style={{color: 'white', 'padding-top': '100px', fontSize: '50px', fontFamily: 'Play'}}>Welcome to our casino!</h2>
+   <h2 style={{color: 'white', 'padding-top': '50px', fontSize: '50px', fontFamily: 'Play'}}>Click the button below and start getting money!</h2>
+       <button style={{ width: '500px', marginTop:'200px'}} type="button" class='btn btn-secondary btn-lg btn-success'><a style={{textDecoration:'none', color:'white', fontWeight: 'bolder', fontFamily: 'Play'}} href="#" onClick={(e) => {handleClick(e)}}>Let's start our trip...</a></button>
   </div>
 }
-
+ 
 export default Welcome;
