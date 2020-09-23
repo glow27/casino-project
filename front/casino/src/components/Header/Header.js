@@ -51,9 +51,9 @@ return (
       <div className="wrapper">
         <div className="inner-header">
           <div className="logo">
-            <Link to="/">MAIN</Link>
+            <Link to="/" style={{ fontFamily: 'Play'}}>MAIN</Link>
             {auth && <p style={{
-            color: 'white',
+            color: 'white', fontFamily: 'Play'
           }}>Your chips: {points}</p>}
           </div>
           <div>
@@ -61,7 +61,7 @@ return (
           </div>
           <div className="menu">
             <button style={{
-            color: 'white',
+            color: 'white', fontFamily: 'Play'
           }} disabled={disabled} onClick={handleMenu}>
               {state.menuName}
             </button>
