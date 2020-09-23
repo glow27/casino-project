@@ -10,7 +10,7 @@ import whoreMachine from './slutMachine.png';
 
 function Roulette() {
   const dispatch = useDispatch();
-  const spinStore = useSelector(state => state.roulette.spines);
+  const spinStore = useSelector((state) => state.roulette.spines);
 
   const pictures = [cherry, cubes, diamond, lemon, seven];
 
@@ -72,9 +72,8 @@ function Roulette() {
         <div
           style={{
             'font-size': '50px',
-            'color': 'white',
+            color: 'white',
             'text-align': 'center',
-
           }}
         >
           Spin roulette and get chips!
@@ -99,17 +98,35 @@ function Roulette() {
         {trigger === true ? (
           <>
             <img
-              style={{ width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "995px" }}
+              style={{
+                width: '140px',
+                height: 'auto',
+                position: 'absolute',
+                top: ' 480px',
+                right: '995px',
+              }}
               src={pictures[random[0] - 1]}
               alt=""
             ></img>
             <img
-              style={{  width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "844px"  }}
+              style={{
+                width: '140px',
+                height: 'auto',
+                position: 'absolute',
+                top: ' 480px',
+                right: '844px',
+              }}
               src={pictures[random[1] - 1]}
               alt=""
             ></img>
             <img
-              style={{width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "687px" }}
+              style={{
+                width: '140px',
+                height: 'auto',
+                position: 'absolute',
+                top: ' 480px',
+                right: '687px',
+              }}
               src={pictures[random[2] - 1]}
               alt=""
             ></img>
@@ -117,17 +134,35 @@ function Roulette() {
         ) : (
           <div style={{ 'text-allign': 'center' }}>
             <img
-              style={{ width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "995px" }}
+              style={{
+                width: '140px',
+                height: 'auto',
+                position: 'absolute',
+                top: ' 480px',
+                right: '995px',
+              }}
               src={pictures[spinStore[0] - 1]}
               alt=""
             ></img>
             <img
-              style={{ width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "844px" }}
+              style={{
+                width: '140px',
+                height: 'auto',
+                position: 'absolute',
+                top: ' 480px',
+                right: '844px',
+              }}
               src={pictures[spinStore[1] - 1]}
               alt=""
             ></img>
             <img
-              style={{ width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "687px" }}
+              style={{
+                width: '140px',
+                height: 'auto',
+                position: 'absolute',
+                top: ' 480px',
+                right: '687px',
+              }}
               src={pictures[spinStore[2] - 1]}
               alt=""
             ></img>

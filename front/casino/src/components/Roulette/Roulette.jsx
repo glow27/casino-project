@@ -45,7 +45,7 @@ function Roulette() {
     <>
       <div>
         <div className="textinput">Enter a number from 1 to 10</div>
-        <input
+        <input required
           className="inputnumber"
           type="input"
           value={input}
