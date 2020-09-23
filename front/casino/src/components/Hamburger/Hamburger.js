@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from "react";
-import { gsap } from "gsap";
-import { TweenMax, TimelineLite, Power3 } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { TweenMax, TimelineLite, Power3 } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   staggerText,
   staggerReveal,
@@ -11,20 +11,19 @@ import {
   handleHover,
   handleHoverExit,
   staggerRevealClose,
-} from "../Animation/Animation";
-import { userLogout } from "../../redux/actionCreator";
+} from '../Animation/Animation';
+import { userLogout } from '../../redux/actionCreator';
 
 const Hamburger = ({ state }) => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
-  console.log(user.auth);
 
   const handleClick = async () => {
     dispatch(userLogout());
-    const respons = await fetch("http://localhost:4000/login/close", {
-      method: "POST",
+    const respons = await fetch('http://localhost:4000/login/close', {
+      method: 'POST',
       body: JSON.stringify(user),
-      headers: { "Content-type": "Application/json" },
+      headers: { 'Content-type': 'Application/json' },
     });
   };
 
@@ -47,18 +46,18 @@ const Hamburger = ({ state }) => {
 
       staggerRevealClose(reveal2, reveal1);
       // Настройка меню отключить
-      gsap.to(menuLayer, { duration: 1, css: { display: "none" } });
+      gsap.to(menuLayer, { duration: 1, css: { display: 'none' } });
     } else if (
       state.clicked === true ||
       (state.clicked === true && state.initial === null)
     ) {
       //  настройка меню чтобы заблочить
-      gsap.to(menuLayer, { duration: 0, css: { display: "block" } });
+      gsap.to(menuLayer, { duration: 0, css: { display: 'block' } });
       // 100% настройка меню высоты 100%
       gsap.to([reveal1, reveal2], {
         duration: 0,
         opacity: 1,
-        height: "100%",
+        height: '100%',
       });
       staggerReveal(reveal1, reveal2);
       fadeInUp(info);
@@ -118,7 +117,7 @@ const Hamburger = ({ state }) => {
                         >
                           Your profile
                         </Link>
-                      </li>{" "}
+                      </li>{' '}
                       <li>
                         <Link
                           onMouseEnter={(e) => handleHover(e)}

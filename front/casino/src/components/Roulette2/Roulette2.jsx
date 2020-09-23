@@ -12,7 +12,7 @@ import { plusPoints, minusPoints } from '../../redux/actionCreator';
 
 function Roulette() {
   const dispatch = useDispatch();
-  const spinStore = useSelector(state => state.roulette.spines);
+  const spinStore = useSelector((state) => state.roulette.spines);
 
   const pictures = [cherry, cubes, diamond, lemon, seven, pumpkin];
 

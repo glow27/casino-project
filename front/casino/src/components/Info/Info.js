@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import {GameOdds} from './GameOdds';
+import { GameOdds } from './GameOdds';
 import style from './Info.module.css';
 
 const Info = () => {
-  const [data, setData] = useState(null)
-  
+  const [data, setData] = useState(null);
+
   useEffect(async () => {
     const response = await fetch('/casino/soccerodds')
     if (response.status === 401) {return <Redirect path='/'/>}

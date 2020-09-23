@@ -18,7 +18,7 @@ function Registration() {
       }),
       headers: { 'Content-type': 'Application/json' },
     });
-    console.log(respons);
+
     if (respons.status === 200) {
       return history.push('/login');
     }
@@ -32,43 +32,41 @@ function Registration() {
     reg.from(menu2, 1.2, { y: 1280, ease: Power3.easeOut });
   });
   return (
-   
-    
-      <div >
-        <div className="Registr" ref={(el) => (menu2 = el)}>
-          <form onSubmit={(e) => {handleClick(e)}}>
-          <div className= "reg" >
+    <div>
+      <div className="Registr" ref={(el) => (menu2 = el)}>
+        <form
+          onSubmit={(e) => {
+            handleClick(e);
+          }}
+        >
+          <div className="reg">
             <div className="input-container">
               <input name="name" type="text" placeholder="Имя пользователя" />
               <i className="zmdi zmdi-account zmdi-hc-lg"></i>
             </div>
 
-              <div className="input-container">
-                <input name="email" type="email" placeholder="Email" required />
-                <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
-              </div>
+            <div className="input-container">
+              <input name="email" type="email" placeholder="Email" required />
+              <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
+            </div>
 
-              <div className="input-container">
-                <input
-                  name="password"
-                  type="password"
-                  placeholder="Пароль"
-                  required
-                />
-                <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
-              </div>
+            <div className="input-container">
+              <input
+                name="password"
+                type="password"
+                placeholder="Пароль"
+                required
+              />
+              <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
+            </div>
 
-            <button
-              className="registration"
-              type="submit"
-            >
+            <button className="registration" type="submit">
               Регистрация
             </button>
-   
           </div>
-          </form>
+        </form>
       </div>
-      </div>
+    </div>
   );
 }
 export default Registration;

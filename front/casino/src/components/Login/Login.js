@@ -1,14 +1,11 @@
+import React, { useRef, useEffect, useState } from 'react';
+import { TweenMax, TimelineLite, Power3 } from 'gsap';
 
-import React, { useRef, useEffect, useState } from "react";
-import { TweenMax, TimelineLite, Power3 } from "gsap";
+import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { userLogin } from '../../redux/actionCreator';
 
-import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { userLogin } from "../../redux/actionCreator";
-
-
-import "../../App.scss";
-
+import '../../App.scss';
 
 function Login() {
   const dispatch = useDispatch();
@@ -18,45 +15,35 @@ function Login() {
   const handleClick = async (e) => {
     e.preventDefault();
     const { email, password } = e.target;
-    const respons = await fetch("http://localhost:4000/login", {
-      method: "POST",
+    const respons = await fetch('http://localhost:4000/login', {
+      method: 'POST',
       body: JSON.stringify({
         email: email.value,
         password: password.value,
       }),
-      headers: { "Content-type": "Application/json" },
+      headers: { 'Content-type': 'Application/json' },
     });
     if (respons.status === 401) {
-      setError("Ошибка!");
+      setError('Ошибка!');
 
       return history.push('/registration');
-
     }
-    
-    
+
     if (respons.status === 200) {
       const user = await respons.json();
-    const { name, points, _id } = user;
+      const { name, points, _id } = user;
       dispatch(userLogin({ name, points, _id, auth: true }));
 
       return history.push('/');
-
     }
-    
-    
   };
 
   let login = useRef(null);
   let tl = new TimelineLite({ delay: 0.8 });
 
   useEffect(() => {
-
-
     TweenMax.to(login, 0, { css: { visibility: 'visible' } });
     tl.from(login, 1.2, { y: 1280, ease: Power3.easeOut }, 'Start').from(
-
-   
-
       login,
       1.5,
       { scale: 1.4, ease: Power3.easeOut },
