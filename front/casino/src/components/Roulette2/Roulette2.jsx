@@ -7,13 +7,14 @@ import diamond from './diamond.png';
 import lemon from './lemon.png';
 import seven from './seven.png';
 import whoreMachine from './slutMachine.png';
+import pumpkin from './pumpkin.png'
 import { plusPoints, minusPoints } from '../../redux/actionCreator';
 
 function Roulette() {
   const dispatch = useDispatch();
   const spinStore = useSelector(state => state.roulette.spines);
 
-  const pictures = [cherry, cubes, diamond, lemon, seven];
+  const pictures = [cherry, cubes, diamond, lemon, seven, pumpkin];
 
   let [random, setRandom] = useState([1, 1, 1]);
   const [trigger, setTrigger] = useState(false);
@@ -30,9 +31,9 @@ function Roulette() {
         setRandom(
           () =>
             (num = [
-              Math.floor(Math.random() * (5 - 1 + 1)) + 1,
-              Math.floor(Math.random() * (5 - 1 + 1)) + 1,
-              Math.floor(Math.random() * (5 - 1 + 1)) + 1,
+              Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+              Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+              Math.floor(Math.random() * (6 - 1 + 1)) + 1,
             ])
         );
         if (i >= 4) {
@@ -75,6 +76,7 @@ function Roulette() {
   }
 
   return (
+    <>
     <div>
       <div style={{ display: 'flex', 'flex-direction': 'column' }}>
         <div
@@ -201,6 +203,7 @@ function Roulette() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
