@@ -77,6 +77,16 @@ function Home() {
       <div className="hero" ref={(el) => (app = el)}>
         <div className="container">
           <div className="hero-inner">
+       <div className= "slot-image" ref={el=> machine = el}>
+            <div className="slot-machine"  >
+              <div className="slot">
+                <img src={slot} alt="slot" />
+              </div>
+              <div className="roulette">
+              <Roulette/>
+              </div>
+           </div>
+         </div>
             <div className="hero-content">
               <div className="hero-content-inner" ref={(el) => (content = el)}>
                 <h1>
@@ -104,16 +114,7 @@ function Home() {
                 </div>
               </div>
             </div>
-        <div className= "slot-image" ref={el=> machine = el}>
-            <div className="slot-machine"  >
-              <div className="slot">
-                <img src={slot} alt="slot" />
-              </div>
-              <div className="roulette">
-              <Roulette/>
-              </div>
-           </div>
-         </div>
+       
           </div>
         </div>
       </div>

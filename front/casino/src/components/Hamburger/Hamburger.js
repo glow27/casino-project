@@ -159,10 +159,12 @@ const Hamburger = ({ state }) => {
               <div ref={(el) => (info = el)} className="info">
 
                 <ul>
+
                   <div className="rules">
                     <h2> Our rules:</h2>
                   </div>
                   <div className="rule1">You get 30 chips when you register</div>
+
                   <div className="rule2">
 
                   For entering the casino once a day, you will receive 10 chips

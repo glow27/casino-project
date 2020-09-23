@@ -1,10 +1,15 @@
 import express from 'express';
+
 import { userLogged, userLoggedOut } from '../middleware/checkAuth.js';
+
 import odds from '../utils/odds.js';
 
 const router = express.Router();
 
-router.get('/soccerodds', userLoggedOut, async (req, res) => {
+
+router.get('/soccerodds',  async (req, res) => {
+
+
   
   let data = await odds();
 
@@ -14,3 +19,4 @@ router.get('/soccerodds', userLoggedOut, async (req, res) => {
 });
 
 export default router;
+// userLogged
