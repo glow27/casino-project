@@ -1,6 +1,6 @@
-import { LOGIN, LOGOUT, ADD_POINTS, SUBSTRACT_POINTS } from './actionTypes';
+import { LOGIN, LOGOUT, ADD_POINTS, SUBSTRACT_POINTS,ADD_PIC } from './actionTypes';
 
-export default function (state = {auth: false}, action) {
+export default function (state = {auth: false, profile: ''}, action) {
   switch (action.type) {
     case LOGIN:
       return action.payload ;
@@ -10,7 +10,8 @@ export default function (state = {auth: false}, action) {
       return { ...state, points: state.points + action.payload  };
     case SUBSTRACT_POINTS:
       return { ...state, points: state.points - action.payload  };
-
+      case ADD_PIC:
+        return { ...state, pic: action.payload  };
     default:
       return state;
   }

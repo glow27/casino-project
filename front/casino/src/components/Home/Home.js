@@ -1,15 +1,16 @@
-import React, { useRef, useEffect } from "react";
-import { TweenMax, TimelineLite, Power3 } from "gsap";
-import cubeLeft from "./images/cube1.png";
-import cubeRight from "./images/cube2.png";
-import slot from "./images/slot.png";
-import Roulette from "../Roulette/Roulette";
+import React, { useRef, useEffect } from 'react';
+import { TweenMax, TimelineLite, Power3 } from 'gsap';
+import cubeLeft from './images/cube1.png';
+import cubeRight from './images/cube2.png';
+import slot from './images/slot.png';
+import Roulette from '../Roulette/Roulette';
+
 function Home() {
   let app = useRef(null);
   let content = useRef(null);
   let images = useRef(null);
-  let machine = useRef(null)
-  
+  let machine = useRef(null);
+
   let tl = new TimelineLite({ delay: 0.3 });
   useEffect(() => {
     const slot = machine.firstElementChild;
@@ -18,9 +19,9 @@ function Home() {
     const headlineFirst = content.children[0].children[0];
     const headlineSecond = headlineFirst.nextSibling;
     const headlineThird = headlineSecond.nextSibling;
-    TweenMax.to(app, 0, { css: { visibility: "visible" } });
+    TweenMax.to(app, 0, { css: { visibility: 'visible' } });
     tl.staggerFrom(
-      [headlineFirst.children, headlineSecond.children, headlineThird.children, ],
+      [headlineFirst.children, headlineSecond.children, headlineThird.children],
       1,
       {
         y: 100,
@@ -28,7 +29,7 @@ function Home() {
         delay: 0.3,
       },
       0.15,
-      "Start"
+      'Start'
     );
     tl.to(
       firstCube,
@@ -38,39 +39,26 @@ function Home() {
         rotationY: 360,
         ease: Power3.easeOut,
       },
-      "Start"
+      'Start'
     ).to(
       secondCube,
       {
         duration: 4,
-        
+
         // rotation:-360,
         rotationY: -360,
         ease: Power3.easeOut,
       },
-      "Start"
-    )
-    tl.to(firstCube,
+      'Start'
+    );
+    tl.to(
+      firstCube,
       1,
       { rotation: 360 },
       { x: 50, ease: Power3.easeOut },
-      "Start"
-    ).to(secondCube,
-      1,
-      { rotation: -360 },
-      { x: 50, ease: Power3.easeOut },
-      )
-    tl.from(slot, 1.2, {y:1200, ease: Power3.easeOut}, "Start")
-    
-    // tl.to(
-    //   firstCube,
-    //   3,
-    //   { rotationY: 360 },
-    //   { x: 50, ease: Power3.easeOut },
-    //   "Start"
-    // ).to(secondCube,
-    // 3, { rotationY: -360 },
-    //  { x: 50, ease: Power3.easeOut });
+      'Start'
+    ).to(secondCube, 1, { rotation: -360 }, { x: 50, ease: Power3.easeOut });
+    tl.from(slot, 1.2, { y: 1200, ease: Power3.easeOut }, 'Start');
   });
   return (
     <>
