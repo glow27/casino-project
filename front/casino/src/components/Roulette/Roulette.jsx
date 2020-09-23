@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import result from "./images/result.png";
 import number from "./images/number.png"
+import { plusPoints, minusPoints } from '../../redux/actionCreator';
+import { useDispatch } from 'react-redux';
+
 function Roulette() {
   const [input, setInput] = useState("");
   const [btn, setBtn] = useState("");
   let [random, setRandom] = useState("");
   const [trigger, setTrigger] = useState(false);
+  const dispatch = useDispatch();
+
   let num = 0;
   let i = 0;
   useEffect(() => {
@@ -23,18 +28,11 @@ function Roulette() {
     return () => clearInterval(interval);
   }, [trigger]);
 
-  //   useEffect(() => {console.log('E BALLS');
-  // clearInterval(interval)
-  // }, [trigger]);
-
-  //   function rand() {
-  //     return (num = Math.floor(Math.random() * (10 - 1 + 1)) + 1);
-  //   }
-
   function spinNum(input) {
     num = Math.floor(Math.random() * (10 - 1 + 1)) + 1;
 
     if (input == num) {
+      dispatch(plusPoints(20))
       return `You won! The number fell out ${num}`;
     } else {
       return `You lost! The number fell out ${num}`;
@@ -54,6 +52,7 @@ function Roulette() {
         <button
           className="button-lucky"
           onClick={() => {
+            dispatch(minusPoints(5))
             setTrigger(true);
             setBtn("");
             setTimeout(function run() {
