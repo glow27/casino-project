@@ -9,12 +9,14 @@ const router = express.Router();
 router.post('/', userLoggedOut, async (req, res, next) => {
   passport.authenticate('local', (err, user, info) => {
     if (err) {
+      console.log('mistake');
       return next(err);
     }
     if (!user) {
       console.log('ok');
       return res.status(401).end();
     }
+    console.log('userrr');
     req.login(user, (err) => {
       if (err) {
         return next(err);
@@ -79,12 +81,11 @@ router.post('/user', userLogged, async (req, res) => {
   return res.json(user);
 });
 
-router.post('/close', userLogged, async (req, res) => {
+router.post('/close', async (req, res) => {
   
   const user = await User.findById(req.body._id);
   user.points = req.body.points;
-  console.log(req.isAuthenticated());
-  console.log(user);
+  
   await user.save();
   req.logout();
   

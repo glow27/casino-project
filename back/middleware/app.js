@@ -14,6 +14,7 @@ const middleWare = (app) => {
   app.use(cors());
   dotenv.config();
   casinoPassport(passport);
+
   const MongoStore = connectMongo(session);
   
   mongoose.connect('mongodb://localhost/Finale', {
@@ -25,8 +26,12 @@ const middleWare = (app) => {
   app.use(morgan('dev'));
   // app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
-  app.use(cookieParser());
+  app.use(cookieParser(process.env.SESSION_KEY));
   // app.use(express.static('???'))
+
+  const cookieExpirationDate = new Date();
+
+cookieExpirationDate.setDate(cookieExpirationDate.getDate() + 1);
   
   app.use(
     session({
@@ -35,7 +40,9 @@ const middleWare = (app) => {
       resave: true,
       saveUninitialized: false,
       name: 'user_sid',
-      cookie: { secure: false }
+      cookie: { secure: false,
+        
+        expires: cookieExpirationDate }
     })
   );
   
