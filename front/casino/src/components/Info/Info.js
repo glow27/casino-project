@@ -20,6 +20,7 @@ const Info = () => {
     <ul className={style.info}>
     {data && data.data.map((el, i) => <GameOdds key={i} game={el}/>)}
     </ul>
+    
   </div>
 }
 
