@@ -16,7 +16,7 @@ import { userLogout } from "../../redux/actionCreator";
 
 const Hamburger = ({ state }) => {
   const dispatch = useDispatch();
-  const user = useSelector((state) => state);
+  const user = useSelector((state) => state.user);
   console.log(user.auth);
 
   const handleClick = async () => {

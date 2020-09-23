@@ -4,5 +4,5 @@ import { reducerRoulette } from "./reducerRoulette";
 
 export const rootReducer = combineReducers({
     roulette: reducerRoulette,
-    reducer: reducer,
+    user: reducer,
 })
