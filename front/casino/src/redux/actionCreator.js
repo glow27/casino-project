@@ -21,7 +21,7 @@ export const minusPoints = (points) => ({
 
 export const spinRoulette = () => ({
   type: GET_SPIN,
-  payload: [Math.floor(Math.random() * (5 - 1 + 1)) + 1,
-    Math.floor(Math.random() * (5 - 1 + 1)) + 1,
-    Math.floor(Math.random() * (5 - 1 + 1)) + 1]
+  payload: [Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+    Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+    Math.floor(Math.random() * (6 - 1 + 1)) + 1]
 });
