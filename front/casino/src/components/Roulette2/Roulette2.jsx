@@ -7,6 +7,7 @@ import diamond from './diamond.png';
 import lemon from './lemon.png';
 import seven from './seven.png';
 import whoreMachine from './slutMachine.png';
+import { plusPoints, minusPoints } from '../../redux/actionCreator';
 
 function Roulette() {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ function Roulette() {
         );
         if (i >= 4) {
           setTrigger(false);
-          setTrigger2(true)
+          setTrigger2(true);
         }
       }, 1000);
     } else {
@@ -55,13 +56,19 @@ function Roulette() {
     if (rand[0] === 0) {
       return '';
     } else if (rand[0] === rand[1] && rand[0] === rand[2]) {
-      return `Jackpot!!! You won 300 chips!`;
+      if(trigger2){
+      dispatch(plusPoints(30))
+      return `Jackpot!! You won 30 chips!`;
+      }
     } else if (
       rand[0] === rand[1] ||
       rand[0] === rand[2] ||
       rand[1] === rand[2]
     ) {
-      return `You won! You get 10 chips!`;
+      if(trigger2){
+      dispatch(plusPoints(15))
+      }
+      return `You won! You get 15 chips!`;
     } else {
       return 'Sorry, you lost!';
     }
@@ -89,22 +96,35 @@ function Roulette() {
           onClick={() => {
             setTrigger(true);
             dispatch(spinRoulette());
+            if(trigger2){
+            dispatch(minusPoints(10))
+            }
           }}
         >
           Test your luck!
         </button>
         <div
-        style={{ 'font-size': '50px', color: 'white', 'text-allign': 'center' , height: '70px'}}
-      >
-       {trigger2 ? result : ''}
-      </div>
+          style={{
+            'font-size': '50px',
+            color: 'white',
+            'text-allign': 'center',
+            height: '70px',
+          }}
+        >
+          {trigger2 ? result : ''}
+        </div>
       </div>
       <div>
-        <div style={{
-              position: 'relative',
-            
-                }}>
-          <img src={whoreMachine} style={{ width: '850px', position: 'absolute', right: '-95px' }} alt=""></img>
+        <div
+          style={{
+            position: 'relative',
+          }}
+        >
+          <img
+            src={whoreMachine}
+            style={{ width: '850px', position: 'absolute', right: '-95px' }}
+            alt=""
+          ></img>
           {trigger === true ? (
             <div>
               <img

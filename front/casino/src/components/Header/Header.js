@@ -52,13 +52,17 @@ return (
         <div className="inner-header">
           <div className="logo">
             <Link to="/">MAIN</Link>
-            {auth && <p>Ваш счет: {points}</p>}
+            {auth && <p style={{
+            color: 'white',
+          }}>Your chips: {points}</p>}
           </div>
           <div>
             <img height="75px" width="600px"></img>
           </div>
           <div className="menu">
-            <button disabled={disabled} onClick={handleMenu}>
+            <button style={{
+            color: 'white',
+          }} disabled={disabled} onClick={handleMenu}>
               {state.menuName}
             </button>
           </div>
