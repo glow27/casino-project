@@ -4,8 +4,10 @@ import { withRouter, Link } from "react-router-dom";
 import Hamburger from '../Hamburger/Hamburger';
 
 const Header = ({history}) => {
-  const auth = useSelector(state => state.auth)
-  const points = useSelector(state => state.points)
+  const auth = useSelector(state => state.user.auth)
+  const points = useSelector(state => state.user.points)
+  
+
 const [state, setState] = useState({
   initial: false,
   clicked: null,
@@ -51,6 +53,9 @@ return (
           <div className="logo">
             <Link to="/">MAIN</Link>
             {auth && <p>Ваш счет: {points}</p>}
+          </div>
+          <div>
+            <img height="75px" width="600px"></img>
           </div>
           <div className="menu">
             <button disabled={disabled} onClick={handleMenu}>

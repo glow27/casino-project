@@ -6,8 +6,8 @@ import { minusPoints } from '../../redux/actionCreator';
 
 function Demo() {
   const [err, setErr] = useState(null);
-  const auth = useSelector((state) => state.auth);
-  const points = useSelector((state) => state.points);
+  const auth = useSelector((state) => state.user.auth);
+  const points = useSelector((state) => state.user.points);
   const dispatch = useDispatch();
   const history = useHistory();
 
