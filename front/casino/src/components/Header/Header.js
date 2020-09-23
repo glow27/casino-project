@@ -63,6 +63,7 @@ const Header = ({ history }) => {
 
 return (
   <header>
+    
     <div className="container">
       <div className="wrapper">
         <div className="inner-header">
@@ -72,10 +73,7 @@ return (
             color: 'white', fontFamily: 'Play'
           }}>Your chips: {points}</p>}
           </div>
-          <div>
-            <img height="75px" width="600px"></img>
-          </div>
-     <div>
+           <div>
               {/* <a href='https://elbrusboot.camp/' target="_blank" onClick={() => {dispatch(plusPoints(5))}}><img height="75px" width="600px" src={advert} alt="reklama"></img></a> */}
               <a
                 href={reklama[1]}
@@ -100,6 +98,7 @@ return (
             </button>
           </div>
         </div>
+      </div>
       </div>
       <Hamburger state={state} />
     </header>

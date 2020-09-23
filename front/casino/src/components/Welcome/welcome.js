@@ -18,7 +18,7 @@ function Welcome() {
         id,
       }),
       headers: { 'Content-type': 'Application/json' },
-      credentials: 'include',
+      
     });
     const user = await response.json();
     const { name, points, _id } = user;

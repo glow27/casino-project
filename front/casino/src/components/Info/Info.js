@@ -7,7 +7,9 @@ const Info = () => {
   const [data, setData] = useState(null);
 
   useEffect(async () => {
-    const response = await fetch('/casino/soccerodds')
+    const response = await fetch('/casino/soccerodds', {
+      credentials: 'include'
+    })
     if (response.status === 401) {return <Redirect path='/'/>}
      const result = await response.json()
     setData(result)
