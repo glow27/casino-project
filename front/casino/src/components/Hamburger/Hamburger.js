@@ -161,7 +161,7 @@ const Hamburger = ({ state }) => {
                 <div className="rules">
                 <h2> Правила:</h2>
                 </div>
-                  <div className="rule1">За регистрацию вы получите 30 фишек</div>
+                  <div className="rule1">За регистрацию вы получите 50 фишек</div>
                   <div className="rule2">
                     
                     За вход в казино раз в день вы получите 10 фишек
