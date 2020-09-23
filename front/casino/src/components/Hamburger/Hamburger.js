@@ -19,12 +19,15 @@ const Hamburger = ({ state }) => {
   const user = useSelector((state) => state.user);
 
   const handleClick = async () => {
-    dispatch(userLogout());
+    
     const respons = await fetch('http://localhost:4000/login/close', {
       method: 'POST',
       body: JSON.stringify(user),
       headers: { 'Content-type': 'Application/json' },
+      
     });
+    if (respons.status === 200) dispatch(userLogout());
+    
   };
 
   // Создаются переменные для узлов дома
@@ -99,7 +102,7 @@ const Hamburger = ({ state }) => {
                         <Link
                           onMouseEnter={(e) => handleHover(e)}
                           onMouseOut={(e) => handleHoverExit(e)}
-                          ref={(el) => (line3 = el)}
+                          ref={(el) => (line2 = el)}
                           to="/roulette"
                         >
                           Roulette
@@ -119,7 +122,7 @@ const Hamburger = ({ state }) => {
                         <Link
                           onMouseEnter={(e) => handleHover(e)}
                           onMouseOut={(e) => handleHoverExit(e)}
-                          ref={(el) => (line2 = el)}
+                          ref={(el) => (line4 = el)}
                           onClick={handleClick}
                           to="#"
                         >

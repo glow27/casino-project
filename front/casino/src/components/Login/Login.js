@@ -22,6 +22,7 @@ function Login() {
         password: password.value,
       }),
       headers: { 'Content-type': 'Application/json' },
+      
     });
     if (respons.status === 401) {
       setError('Ошибка!');
