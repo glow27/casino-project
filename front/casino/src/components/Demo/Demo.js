@@ -39,7 +39,7 @@ function Demo() {
                 За использование прогнозов взимается 10 баллов
               </h3>
 
-              <button className="cancel" type="submit"><a href="/demo">
+              <button className="cancel" type="submit"><a href="/">
                 Отменить</a>
 
 

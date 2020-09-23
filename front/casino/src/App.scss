@@ -355,10 +355,12 @@ header {
             text-shadow: 4px 4px 4px black;
             right: 50px;
             h2 {
-              
+              position: relative;
+              text-align: center;
               font-size: 3rem;
               margin: 17px auto;
-              text-shadow: 4px 4px 4px black;
+              // text-shadow: 4px 4px 4px black;
+            
             
             }
             p {
