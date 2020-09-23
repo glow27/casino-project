@@ -1,4 +1,4 @@
-import { LOGIN, LOGOUT, ADD_POINTS, SUBSTRACT_POINTS, GET_SPIN } from './actionTypes';
+import { LOGIN, LOGOUT, ADD_POINTS, SUBSTRACT_POINTS, GET_SPIN,ADD_PIC } from './actionTypes';
 
 export const userLogout = () => ({
   type: LOGOUT,
@@ -25,3 +25,8 @@ export const spinRoulette = () => ({
     Math.floor(Math.random() * (6 - 1 + 1)) + 1,
     Math.floor(Math.random() * (6 - 1 + 1)) + 1]
 });
+
+export const addPic = (pic) => ({
+  type: ADD_PIC,
+  payload: pic
+})

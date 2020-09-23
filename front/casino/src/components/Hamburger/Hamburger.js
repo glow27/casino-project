@@ -87,9 +87,10 @@ const Hamburger = ({ state }) => {
                       onMouseOut={(e) => handleHoverExit(e)}
                       ref={(el) => (line1 = el)}
                       to="/demo"
+                      style={{ fontFamily: 'Play'}}
                     >
 
-                      Sports predictions
+                      Predictions
                     </Link>
                   </li>
 
@@ -101,6 +102,7 @@ const Hamburger = ({ state }) => {
                           onMouseOut={(e) => handleHoverExit(e)}
                           ref={(el) => (line3 = el)}
                           to="/roulette"
+                          style={{ fontFamily: 'Play'}}
                         >
                           Roulette
                         </Link>
@@ -111,6 +113,7 @@ const Hamburger = ({ state }) => {
                           onMouseOut={(e) => handleHoverExit(e)}
                           ref={(el) => (line3 = el)}
                           to="/lk"
+                          style={{ fontFamily: 'Play'}}
                         >
                           Your profile
                         </Link>
@@ -122,6 +125,7 @@ const Hamburger = ({ state }) => {
                           ref={(el) => (line2 = el)}
                           onClick={handleClick}
                           to="#"
+                          style={{ fontFamily: 'Play'}}
                         >
                           Logout
                         </Link>
@@ -136,6 +140,7 @@ const Hamburger = ({ state }) => {
                             onMouseOut={(e) => handleHoverExit(e)}
                             ref={(el) => (line2 = el)}
                             to="/login"
+                            style={{ fontFamily: 'Play'}}
                           >
                             Login
                         </Link>
@@ -146,6 +151,7 @@ const Hamburger = ({ state }) => {
                             onMouseOut={(e) => handleHoverExit(e)}
                             ref={(el) => (line3 = el)}
                             to="/registration"
+                            style={{ fontFamily: 'Play'}}
                           >
                             Registration
                         </Link>

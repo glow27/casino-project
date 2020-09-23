@@ -60,16 +60,22 @@ const Header = ({ history }) => {
       setDisabled(false);
     }, 1200);
   };
-  return (
-    <header>
-      <div className="container">
-        <div className="wrapper">
-          <div className="inner-header">
-            <div className="logo">
-              <Link to="/">MAIN</Link>
-              {auth && <p>Ваш счет: {points}</p>}
-            </div>
-            <div>
+
+return (
+  <header>
+    <div className="container">
+      <div className="wrapper">
+        <div className="inner-header">
+          <div className="logo">
+            <Link to="/" style={{ fontFamily: 'Play'}}>MAIN</Link>
+            {auth && <p style={{
+            color: 'white', fontFamily: 'Play'
+          }}>Your chips: {points}</p>}
+          </div>
+          <div>
+            <img height="75px" width="600px"></img>
+          </div>
+     <div>
               {/* <a href='https://elbrusboot.camp/' target="_blank" onClick={() => {dispatch(plusPoints(5))}}><img height="75px" width="600px" src={advert} alt="reklama"></img></a> */}
               <a
                 href={reklama[1]}
@@ -86,11 +92,12 @@ const Header = ({ history }) => {
                 ></img>
               </a>
             </div>
-            <div className="menu">
-              <button disabled={disabled} onClick={handleMenu}>
-                {state.menuName}
-              </button>
-            </div>
+          <div className="menu">
+            <button style={{
+            color: 'white', fontFamily: 'Play'
+          }} disabled={disabled} onClick={handleMenu}>
+              {state.menuName}
+            </button>
           </div>
         </div>
       </div>
