@@ -7,16 +7,19 @@ import diamond from './diamond.png';
 import lemon from './lemon.png';
 import seven from './seven.png';
 import whoreMachine from './slutMachine.png';
+import pumpkin from './pumpkin.png'
+import { plusPoints, minusPoints } from '../../redux/actionCreator';
 
 function Roulette() {
   const dispatch = useDispatch();
   const spinStore = useSelector(state => state.roulette.spines);
 
-  const pictures = [cherry, cubes, diamond, lemon, seven];
+  const pictures = [cherry, cubes, diamond, lemon, seven, pumpkin];
 
   let [random, setRandom] = useState([1, 1, 1]);
   const [trigger, setTrigger] = useState(false);
   let [result, setResult] = useState('');
+  const [trigger2, setTrigger2] = useState(false);
   let num = 0;
   let i = 0;
 
@@ -28,13 +31,14 @@ function Roulette() {
         setRandom(
           () =>
             (num = [
-              Math.floor(Math.random() * (5 - 1 + 1)) + 1,
-              Math.floor(Math.random() * (5 - 1 + 1)) + 1,
-              Math.floor(Math.random() * (5 - 1 + 1)) + 1,
+              Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+              Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+              Math.floor(Math.random() * (6 - 1 + 1)) + 1,
             ])
         );
         if (i >= 4) {
           setTrigger(false);
+          setTrigger2(true);
         }
       }, 1000);
     } else {
@@ -45,7 +49,6 @@ function Roulette() {
 
   useEffect(() => {
     setTimeout(function run() {
-      console.log(spinStore);
       setResult(spinNum(spinStore));
     }, 4000);
   }, [spinStore]);
@@ -54,27 +57,33 @@ function Roulette() {
     if (rand[0] === 0) {
       return '';
     } else if (rand[0] === rand[1] && rand[0] === rand[2]) {
-      return `Jackpot!!! You won 300 chips!`;
+      if(trigger2){
+      dispatch(plusPoints(30))
+      return `Jackpot!! You won 30 chips!`;
+      }
     } else if (
       rand[0] === rand[1] ||
       rand[0] === rand[2] ||
       rand[1] === rand[2]
     ) {
-      return `You won! You get 10 chips!`;
+      if(trigger2){
+      dispatch(plusPoints(15))
+      }
+      return `You won! You get 15 chips!`;
     } else {
       return 'Sorry, you lost!';
     }
   }
 
   return (
+    <>
     <div>
       <div style={{ display: 'flex', 'flex-direction': 'column' }}>
         <div
           style={{
             'font-size': '50px',
-            'color': 'white',
+            color: 'white',
             'text-align': 'center',
-
           }}
         >
           Spin roulette and get chips!
@@ -89,57 +98,112 @@ function Roulette() {
           onClick={() => {
             setTrigger(true);
             dispatch(spinRoulette());
+            if(trigger2){
+            dispatch(minusPoints(10))
+            }
           }}
         >
           Test your luck!
         </button>
+        <div
+          style={{
+            'font-size': '50px',
+            color: 'white',
+            'text-allign': 'center',
+            height: '70px',
+          }}
+        >
+          {trigger2 ? result : ''}
+        </div>
       </div>
       <div>
-        <img src={whoreMachine} style={{ width: '1100px' }} alt=""></img>
-        {trigger === true ? (
-          <>
-            <img
-              style={{ width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "995px" }}
-              src={pictures[random[0] - 1]}
-              alt=""
-            ></img>
-            <img
-              style={{  width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "844px"  }}
-              src={pictures[random[1] - 1]}
-              alt=""
-            ></img>
-            <img
-              style={{width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "687px" }}
-              src={pictures[random[2] - 1]}
-              alt=""
-            ></img>
-          </>
-        ) : (
-          <div style={{ 'text-allign': 'center' }}>
-            <img
-              style={{ width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "995px" }}
-              src={pictures[spinStore[0] - 1]}
-              alt=""
-            ></img>
-            <img
-              style={{ width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "844px" }}
-              src={pictures[spinStore[1] - 1]}
-              alt=""
-            ></img>
-            <img
-              style={{ width: '140px', height: 'auto', position: "absolute", top:" 480px", right: "687px" }}
-              src={pictures[spinStore[2] - 1]}
-              alt=""
-            ></img>
-          </div>
-        )}
-      </div>
-      <div
-        style={{ 'font-size': '50px', color: 'white', 'text-allign': 'center' }}
-      >
-        {result}
+        <div
+          style={{
+            position: 'relative',
+          }}
+        >
+          <img
+            src={whoreMachine}
+            style={{ width: '850px', position: 'absolute', right: '-95px' }}
+            alt=""
+          ></img>
+          {trigger === true ? (
+            <div>
+              <img
+                style={{
+                  width: '110px',
+                  height: 'auto',
+                  position: 'absolute',
+                  right: '66%',
+                  top: '200px',
+                }}
+                src={pictures[random[0] - 1]}
+                alt=""
+              ></img>
+              <img
+                style={{
+                  width: '110px',
+                  height: 'auto',
+                  position: 'absolute',
+                  right: '47%',
+                  top: '200px',
+                }}
+                src={pictures[random[1] - 1]}
+                alt=""
+              ></img>
+              <img
+                style={{
+                  width: '110px',
+                  height: 'auto',
+                  position: 'absolute',
+                  right: '27%',
+                  top: '200px',
+                }}
+                src={pictures[random[2] - 1]}
+                alt=""
+              ></img>
+            </div>
+          ) : (
+            <div>
+              <img
+                style={{
+                  width: '110px',
+                  height: 'auto',
+                  position: 'absolute',
+                  right: '66%',
+                  top: '200px',
+                }}
+                src={pictures[spinStore[0] - 1]}
+                alt=""
+              ></img>
+              <img
+                style={{
+                  width: '110px',
+                  height: 'auto',
+                  position: 'absolute',
+                  right: '47%',
+                  top: '200px',
+                }}
+                src={pictures[spinStore[1] - 1]}
+                alt=""
+              ></img>
+              <img
+                style={{
+                  width: '110px',
+                  height: 'auto',
+                  position: 'absolute',
+                  right: '27%',
+                  top: '200px',
+                }}
+                src={pictures[spinStore[2] - 1]}
+                alt=""
+              ></img>
+            </div>
+          )}
+        </div>
       </div>
     </div>
+    </>
   );
 }
 
