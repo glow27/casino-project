@@ -19,6 +19,7 @@ router.post('/', userLoggedOut, async (req, res, next) => {
       if (err) {
         return next(err);
       }
+      
       return res.json(user);
     });
   })(req, res, next);
@@ -78,11 +79,15 @@ router.post('/user', userLogged, async (req, res) => {
   return res.json(user);
 });
 
-router.post('/close', userLoggedOut, async (req, res) => {
+router.post('/close', userLogged, async (req, res) => {
+  
   const user = await User.findById(req.body._id);
   user.points = req.body.points;
-  user.save();
+  console.log(req.isAuthenticated());
+  console.log(user);
+  await user.save();
   req.logout();
+  
   return res.end();
 });
 

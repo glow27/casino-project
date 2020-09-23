@@ -9,9 +9,11 @@ import passport from 'passport';
 import {default as connectMongo} from 'connect-mongo';
 import casinoPassport from './passport.js';
 
+
 const middleWare = (app) => {
   app.use(cors());
   dotenv.config();
+  casinoPassport(passport);
   const MongoStore = connectMongo(session);
   
   mongoose.connect('mongodb://localhost/Finale', {
@@ -30,16 +32,16 @@ const middleWare = (app) => {
     session({
       store: new MongoStore({ mongooseConnection: mongoose.connection, secret: 'squirrel', ttl: 60 }),
       secret: process.env.SESSION_KEY,
-      resave: false,
+      resave: true,
       saveUninitialized: false,
       name: 'user_sid',
-      
+      cookie: { secure: false }
     })
   );
   
   app.use(passport.initialize());
   app.use(passport.session());
-  casinoPassport(passport);
+  
 
 };
 

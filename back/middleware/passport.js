@@ -26,7 +26,7 @@ export default function (passport) {
             done(null, user);
           } else {
             return done(null, false, {
-              message: 'fuck that!',
+              message: 'password does not match!',
             });
           }
         } catch (e) {
@@ -103,11 +103,14 @@ export default function (passport) {
   );
 
   passport.serializeUser((user, done) => {
+    
     done(null, user.id);
   });
 
   passport.deserializeUser((id, done) => {
+
     User.findById(id, (err, user) => {
+     
       done(err, user);
     });
   });
