@@ -4,7 +4,7 @@ import odds from '../utils/odds.js';
 
 const router = express.Router();
 
-router.get('/soccerodds', async (req, res) => {
+router.get('/soccerodds', userLogged, async (req, res) => {
   
   let data = await odds();
 
