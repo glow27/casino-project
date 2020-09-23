@@ -27,7 +27,7 @@ body {
   z-index: 1;
   width: 100%;
   height: 100em;
-  position: fixed;
+  // position: fixed;
   // overflow: hidden;
 
   
@@ -355,10 +355,12 @@ header {
             text-shadow: 4px 4px 4px black;
             right: 50px;
             h2 {
-              
+              position: relative;
+              text-align: center;
               font-size: 3rem;
               margin: 17px auto;
-              text-shadow: 4px 4px 4px black;
+              // text-shadow: 4px 4px 4px black;
+            
             
             }
             p {
@@ -400,6 +402,7 @@ header {
   height: 100vh;
   position: relative;
   .hero-images-inner {
+    
     .hero-image {
       position: absolute;
       overflow: hidden;
@@ -431,7 +434,7 @@ header {
 .slot-machine{
   position: absolute;
   top: 120px;
-  right: 190px;
+  right: 20%;
   }
   .textinput{
     font-size: 25px;
@@ -503,6 +506,29 @@ header {
     top: 270px;
     right: 0px;
     z-index: 0;
+  }
+  .cardd{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 10px 0px 10px ;
+    padding: 10px;
+  }
+  ul{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .infosport{
+    display: flex;
+    position: relative;
+    top: 250;
+    right: 0px;
+    z-index: 5;
+    border-radius: 15px;
+    padding: 10px;
+    background: wheat;
+    width: 250px;
+    height: 250px;
   }
 
 @keyframes backgroundEffect {

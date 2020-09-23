@@ -31,7 +31,7 @@ const Hamburger = ({ state }) => {
   let menuLayer = useRef(null);
   let reveal1 = useRef(null);
   let reveal2 = useRef(null);
-  let cityBackground = useRef(null);
+  // let cityBackground = useRef(null);
   let line1 = useRef(null);
   let line2 = useRef(null);
   let line3 = useRef(null);
@@ -73,7 +73,7 @@ const Hamburger = ({ state }) => {
       ></div>
       <div ref={(el) => (reveal2 = el)} className="menu-layer">
         <div
-          ref={(el) => (cityBackground = el)}
+          // ref={(el) => (cityBackground = el)}
           className="menu-city-background"
         ></div>
         <div className="container">
@@ -88,7 +88,8 @@ const Hamburger = ({ state }) => {
                       ref={(el) => (line1 = el)}
                       to="/demo"
                     >
-                      Прогнозы
+
+                      Sports predictions
                     </Link>
                   </li>
 
@@ -101,7 +102,7 @@ const Hamburger = ({ state }) => {
                           ref={(el) => (line3 = el)}
                           to="/roulette"
                         >
-                          Рулетка
+                          Roulette
                         </Link>
                       </li>
                       <li>
@@ -111,7 +112,7 @@ const Hamburger = ({ state }) => {
                           ref={(el) => (line3 = el)}
                           to="/lk"
                         >
-                          Профиль
+                          Your profile
                         </Link>
                       </li>{' '}
                       <li>
@@ -122,49 +123,54 @@ const Hamburger = ({ state }) => {
                           onClick={handleClick}
                           to="#"
                         >
-                          Выйти
+                          Logout
                         </Link>
-                      </li>{' '}
+                      </li>{" "}
+
                     </>
                   ) : (
-                    <>
-                      <li>
-                        <Link
-                          onMouseEnter={(e) => handleHover(e)}
-                          onMouseOut={(e) => handleHoverExit(e)}
-                          ref={(el) => (line2 = el)}
-                          to="/login"
-                        >
-                          Войти
+                      <>
+                        <li>
+                          <Link
+                            onMouseEnter={(e) => handleHover(e)}
+                            onMouseOut={(e) => handleHoverExit(e)}
+                            ref={(el) => (line2 = el)}
+                            to="/login"
+                          >
+                            Login
                         </Link>
-                      </li>
-                      <li>
-                        <Link
-                          onMouseEnter={(e) => handleHover(e)}
-                          onMouseOut={(e) => handleHoverExit(e)}
-                          ref={(el) => (line3 = el)}
-                          to="/registration"
-                        >
-                          Регистрация
+                        </li>
+                        <li>
+                          <Link
+                            onMouseEnter={(e) => handleHover(e)}
+                            onMouseOut={(e) => handleHoverExit(e)}
+                            ref={(el) => (line3 = el)}
+                            to="/registration"
+                          >
+                            Registration
                         </Link>
-                      </li>
-                    </>
-                  )}
+                        </li>
+
+                      </>
+                    )}
                 </ul>
               </nav>
               <div ref={(el) => (info = el)} className="info">
+
                 <ul>
+
                   <div className="rules">
-                    <h2> Правила:</h2>
+                    <h2> Our rules:</h2>
                   </div>
-                  <div className="rule1">
-                    За регистрацию вы получите 30 фишек
-                  </div>
+                  <div className="rule1">You get 30 chips when you register</div>
+
                   <div className="rule2">
-                    За вход в казино раз в день вы получите 10 фишек
+
+                  For entering the casino once a day, you will receive 10 chips
                   </div>
                   <div className="rule3">
-                    При переходе на рекламное объявление вы получите 2 фишки
+
+                    When you click on an advertisment, you will receive 2 chips
                   </div>
                 </ul>
               </div>
