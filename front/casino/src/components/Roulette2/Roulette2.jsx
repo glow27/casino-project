@@ -106,9 +106,9 @@ function Roulette() {
             onClick={() => {
               setTrigger(true);
               dispatch(spinRoulette());
-              if (trigger2) {
+              
                 dispatch(minusPoints(10));
-              }
+              
             }}
           >
             Test your luck!
