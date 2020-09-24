@@ -18,15 +18,15 @@ export const GameOdds = ({ game }) => {
               <li>
                 <h4>{team1}</h4>
                 {odd1 < odd2 ? (
-                  <p>ПОБЕДА!!! коэф. {odd1}</p>
+                  <p>WIN!!! coef. {odd1}</p>
                 ) : (
-                  <p>коэф. {odd1}</p>
+                  <p>coef. {odd1}</p>
                 )}
                 <h4>{team2}</h4>
                 {odd2 < odd1 ? (
-                  <p>ПОБЕДА!!! коэф. {odd2}</p>
+                  <p>WIN!!! coef. {odd2}</p>
                 ) : (
-                  <p>коэф. {odd2}</p>
+                  <p>coef. {odd2}</p>
                 )}
               </li>
             </div>
