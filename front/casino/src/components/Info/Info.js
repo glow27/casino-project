@@ -20,15 +20,14 @@ const Info = () => {
   return (
     <>
       <div >
+      
+          <div style={{textAlign: 'center', fontFamily: 'Play', fontSize: '40px', color: 'white'}}>Closest EPL matches</div>
+          <div style={{textAlign: 'center', fontFamily: 'Play', fontSize: '20px', color: 'white'}}>We garantee that you will earn big money with us... but we dont that you can lose.</div>
         <div>
           <ul className={style.info}>
             {data && data.data.map((el, i) => <GameOdds key={i} game={el} />)}
           </ul>
         </div>
-        {/* <div className="sport">
-          <h1>Ближайшие матчи Aпл</h1>
-          <h2>Результат гарантирован! Можно ставить хату!</h2>
-        </div> */}
       </div>
     </>
   );
@@ -36,3 +35,7 @@ const Info = () => {
 
 
 export default Info;
+
+
+// <h1 style={{textAlign: 'center'}}>Closest EPL matches</h1>
+//           <h2 style={{textAlign: 'center'}}>Результат гарантирован! Можно ставить хату!</h2>

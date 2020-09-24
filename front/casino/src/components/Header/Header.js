@@ -87,6 +87,7 @@ return (
                   width="600px"
                   src={reklama[0]}
                   alt="reklama"
+                  style={{borderRadius: '10px'}}
                 ></img>
               </a>
             </div>
