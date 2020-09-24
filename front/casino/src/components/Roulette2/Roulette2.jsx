@@ -78,7 +78,13 @@ function Roulette() {
   return (
     <>
       <div>
-        <div style={{ display: 'flex', 'flex-direction': 'column' , textAlign: 'center'}}>
+        <div
+          style={{
+            display: 'flex',
+            'flex-direction': 'column',
+            textAlign: 'center',
+          }}
+        >
           <div
             style={{
               'font-size': '50px',
@@ -113,7 +119,7 @@ function Roulette() {
               color: 'white',
               textAllign: 'center',
               height: '70px',
-               fontFamily: 'Play'
+              fontFamily: 'Play',
             }}
           >
             {trigger2 ? result : ''}
