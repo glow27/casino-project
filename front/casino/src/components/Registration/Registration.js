@@ -40,8 +40,9 @@ function Registration() {
           }}
         >
           <div className="reg">
+            <div style={{textAlign: 'center', color: 'white'}}>Ошибка</div>
             <div className="input-container">
-              <input name="name" type="text" placeholder="Имя пользователя" />
+              <input name="name" type="text" placeholder="User name" />
               <i className="zmdi zmdi-account zmdi-hc-lg"></i>
             </div>
 
@@ -54,7 +55,7 @@ function Registration() {
               <input
                 name="password"
                 type="password"
-                placeholder="Пароль"
+                placeholder="Password"
                 required
               />
               <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
