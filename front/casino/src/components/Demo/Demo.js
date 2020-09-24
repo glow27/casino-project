@@ -18,7 +18,8 @@ function Demo() {
       dispatch(minusPoints(10));
       return history.push('/casino/soccerbet');
     }
-    setErr('Log in please');
+    if (points <= 0) setErr('You need more chips');
+    if (!auth) setErr('Please login first!');
   };
 
   let warning = useRef(null);

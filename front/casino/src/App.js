@@ -11,7 +11,7 @@ import Info from './components/Info/Info';
 import Registration from "./components/Registration/Registration";
 import Roulette2 from "./components/Roulette2/Roulette2";
 import {Profile} from './components/Profile/Profile'
-
+import Craps from "./components/Craps/craps"
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Roulette from "./components/Roulette/Roulette";
 
@@ -29,14 +29,18 @@ function App() {
                 <Route exact path="/demo" component={Demo} />
 
 
-                <Route exact path="/lk" component={Profile} />
-                
+                <PrivateRoute exact path="/lk">
+                <Profile/>
+                </PrivateRoute>
                 <Route path="/welcome">
                   <Welcome/>
                 </Route>
                 <PrivateRoute exact path="/casino/soccerbet">
                   <Info/>
                 </PrivateRoute>
+                <Route exact path="/casino/craps">
+                  <Craps/>
+                </Route>
                 <PrivateRoute exact path="/roulette">
                   <Roulette2/>
                 </PrivateRoute>

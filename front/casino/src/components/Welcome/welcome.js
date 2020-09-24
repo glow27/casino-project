@@ -27,6 +27,7 @@ function Welcome() {
       dispatch(userLogin({ name, points, _id, auth: true }));
       return history.push('/');
     }
+    return history.push('/login');
   };
 
 
