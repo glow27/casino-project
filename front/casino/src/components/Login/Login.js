@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { TweenMax, TimelineLite, Power3 } from 'gsap';
 
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../redux/actionCreator';
 
@@ -10,7 +10,9 @@ import '../../App.scss';
 function Login() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(['Please login!', 'white']);
+  const location = useLocation();
+  console.log(history);
 
   const handleClick = async (e) => {
     e.preventDefault();
@@ -25,9 +27,9 @@ function Login() {
       
     });
     if (respons.status === 401) {
-      setError('Ошибка!');
+      setError(['Please try again! Password or email doesn\'t match.', 'red'] );
 
-      return history.push('/registration');
+      
     }
 
     if (respons.status === 200) {
@@ -57,7 +59,7 @@ function Login() {
         <div className="vod">
           <form onSubmit={(e) => handleClick(e)}>
             <div className="input-container">
-            <div style={{textAlign: 'center', color: 'white'}}>Ошибка</div>
+  <div style={{textAlign: 'center', color: error && error[1]}}>{error && error[0]}</div>
               <input name="email" type="email" placeholder="Email" required />
               <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
             </div>
@@ -73,7 +75,7 @@ function Login() {
             </div>
 
             <button className="signin" type="submit">
-              Войти
+              Login
             </button>
           </form>
           <div>

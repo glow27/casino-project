@@ -22,7 +22,7 @@ function Registration() {
     if (respons.status === 200) {
       return history.push('/login');
     }
-    return setError('Ошибка!22');
+    return setError('Something went wrong... Please try again!');
   };
 
   let menu2 = useRef(null);
@@ -40,7 +40,7 @@ function Registration() {
           }}
         >
           <div className="reg">
-            <div style={{textAlign: 'center', color: 'white'}}>Ошибка</div>
+            <div style={{textAlign: 'center', color: 'red'}}>{error && error}</div>
             <div className="input-container">
               <input name="name" type="text" placeholder="User name" />
               <i className="zmdi zmdi-account zmdi-hc-lg"></i>
@@ -62,7 +62,7 @@ function Registration() {
             </div>
 
             <button className="registration" type="submit">
-              Регистрация
+              Registration
             </button>
           </div>
         </form>
