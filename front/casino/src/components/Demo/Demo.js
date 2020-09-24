@@ -18,7 +18,7 @@ function Demo() {
       dispatch(minusPoints(10));
       return history.push('/casino/soccerbet');
     }
-    setErr('вы не вошли в аккаунт');
+    setErr('Log in please');
   };
 
   let warning = useRef(null);
@@ -33,14 +33,14 @@ function Demo() {
         <div>
           <div className="Warning" ref={(el) => (warning = el)}>
             <div className="points">
-              {err && <p>{err}</p>}
-              <h2 className="apl">Прогнозы на АПЛ</h2>
+              {err && <p style={{textAlign: 'center'}}>{err}</p>}
+              <h2 className="apl">Predictions on EPL</h2>
               <h3 className="useprognoz">
-                За использование прогнозов взимается 10 баллов
+                Price for having a prediction is 10 chips
               </h3>
 
               <button className="cancel" type="submit"><a href="/">
-                Отменить</a>
+                Cancel</a>
 
 
               </button>
@@ -51,7 +51,7 @@ function Demo() {
                     handleClick(e);
                   }}
                 >
-                  Продолжить
+                  Continue
                 </a>
               </button>
             </div>

@@ -1,6 +1,6 @@
 import { LOGIN, LOGOUT, ADD_POINTS, SUBSTRACT_POINTS,ADD_PIC } from './actionTypes';
 
-export default function (state = {auth: false, profile: ''}, action) {
+export default function (state = {auth: false, pic: ''}, action) {
   switch (action.type) {
     case LOGIN:
       return action.payload ;

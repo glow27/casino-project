@@ -62,7 +62,7 @@ function Home() {
   });
   return (
     <>
-      <div className="hero" ref={(el) => (app = el)}>
+    <div className="hero" ref={(el) => (app = el)}>
         <div className="container">
           <div className="hero-inner">
        <div className= "slot-image" ref={el=> machine = el}>
@@ -92,7 +92,7 @@ function Home() {
                 </h1>
                 </div>
                </div>
-           <div className="hero-images">
+             <div className="hero-images">
               <div ref={(el) => (images = el)} className="hero-images-inner">
                 <div className="hero-image girl">
                   <img src={cubeLeft} alt="girl" />
@@ -101,7 +101,7 @@ function Home() {
                   <img src={cubeRight} alt="boy" />
                 </div>
               </div>
-          </div>
+           </div>
        
           </div>
         </div>

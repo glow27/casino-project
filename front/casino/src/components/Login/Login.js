@@ -57,6 +57,7 @@ function Login() {
         <div className="vod">
           <form onSubmit={(e) => handleClick(e)}>
             <div className="input-container">
+            <div style={{textAlign: 'center', color: 'white'}}>Ошибка</div>
               <input name="email" type="email" placeholder="Email" required />
               <i className="zmdi zmdi-lock zmdi-hc-lg"></i>
             </div>
