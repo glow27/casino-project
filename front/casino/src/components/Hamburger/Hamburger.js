@@ -106,10 +106,10 @@ const Hamburger = ({ state }) => {
                           onMouseEnter={(e) => handleHover(e)}
                           onMouseOut={(e) => handleHoverExit(e)}
                           ref={(el) => (line2 = el)}
-                          to="/roulette"
+                          to="/games"
                           style={{ fontFamily: 'Play'}}
                         >
-                          Roulette
+                          Games
                         </Link>
                       </li>
                       <li>
