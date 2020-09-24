@@ -14,7 +14,7 @@ import {Profile} from './components/Profile/Profile'
 import Craps from "./components/Craps/craps"
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import Roulette from "./components/Roulette/Roulette";
-
+import Games from './components/Games/Games'
 function App() {
   return (
     <BrowserRouter>
@@ -44,6 +44,9 @@ function App() {
                 <PrivateRoute exact path="/roulette">
                   <Roulette2/>
                 </PrivateRoute>
+                <Route exact path = "/games">
+                  <Games/>
+                </Route>
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/registration" component={Registration} />
               </Switch>
