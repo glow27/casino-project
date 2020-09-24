@@ -2,11 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 import { GameOdds } from "./GameOdds";
-import style from "./Info.module.css";
+import {Spinner1} from '../Spinners/spinner1'
 
 
 const Info = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(false);
 
   useEffect(async () => {
 
@@ -19,16 +19,23 @@ const Info = () => {
   }, []);
   return (
     <>
+    
       <div >
       
           <div style={{textAlign: 'center', fontFamily: 'Play', fontSize: '40px', color: 'white'}}>Closest EPL matches</div>
-          <div style={{textAlign: 'center', fontFamily: 'Play', fontSize: '20px', color: 'white'}}>We garantee that you will earn big money with us... but we dont that you can lose.</div>
+          <div style={{textAlign: 'center', fontFamily: 'Play', fontSize: '20px', color: 'white'}}>We guarantee that you will earn big money with us... but we dont that you can lose.</div>
+          <div style={{textAlign: 'center', fontFamily: 'Play', fontSize: '20px', color: 'white'}}>{data === false ? <Spinner1/> : null}</div>
+          
         <div>
-          <ul className={style.info}>
+          
+          <ul>
             {data && data.data.map((el, i) => <GameOdds key={i} game={el} />)}
           </ul>
+          
         </div>
+        
       </div>
+      
     </>
   );
 };
