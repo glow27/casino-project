@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.scss";
 
-
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Header from "./components/Header/Header";
 import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
@@ -34,11 +34,12 @@ function App() {
                 <Route path="/welcome">
                   <Welcome/>
                 </Route>
-                <Route exact path="/casino/soccerbet">
+                <PrivateRoute exact path="/casino/soccerbet">
                   <Info/>
-                </Route>
-                <Route exact path="/roulette" component={Roulette2} />
-
+                </PrivateRoute>
+                <PrivateRoute exact path="/roulette">
+                  <Roulette2/>
+                </PrivateRoute>
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/registration" component={Registration} />
               </Switch>

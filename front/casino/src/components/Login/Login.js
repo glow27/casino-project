@@ -72,7 +72,7 @@ function Login() {
             </div>
 
             <button className="signin" type="submit">
-              Войти
+              Login
             </button>
           </form>
           <div>
