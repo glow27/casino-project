@@ -75,7 +75,7 @@ return (
           </div>
            <div>
               {/* <a href='https://elbrusboot.camp/' target="_blank" onClick={() => {dispatch(plusPoints(5))}}><img height="75px" width="600px" src={advert} alt="reklama"></img></a> */}
-              <a
+              <a style={{}}
                 href={reklama[1]}
                 target="_blank"
                 onClick={() => {
