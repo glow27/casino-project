@@ -38,9 +38,9 @@ function App() {
                 <PrivateRoute exact path="/casino/soccerbet">
                   <Info/>
                 </PrivateRoute>
-                <Route exact path="/casino/craps">
+                <PrivateRoute exact path="/casino/craps">
                   <Craps/>
-                </Route>
+                </PrivateRoute>
                 <PrivateRoute exact path="/roulette">
                   <Roulette2/>
                 </PrivateRoute>

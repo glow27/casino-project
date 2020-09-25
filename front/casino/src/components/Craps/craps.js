@@ -65,8 +65,15 @@ function Craps() {
 
   useEffect(() => {
     if (win === 1) {
-      dispatch(plusPoints(20));
-      setMsg('You won!!!');
+      dispatch(plusPoints(20 - (counter -1)));
+      setMsg(`You won ${20 - (counter -1)} chips !!!`);
+    }
+    if (win === 3) {
+      dispatch(plusPoints(30));
+      setMsg('You won 30 chips!!!');
+    }
+    if (win === 2) {
+      setMsg('You lost!!!');
     }
   }, [win]);
 
@@ -90,7 +97,7 @@ function Craps() {
         <div><h4>The point: {point}</h4></div>
         <div><h5>Your roll score: {userScore}</h5></div>
         <div>
-          <img src={pictures[dice1 -1]}/> <img src={pictures[dice2 -1]}/>
+          <img src={pictures[dice1 -1]}/>  <img src={pictures[dice2 -1]}/>
         </div>
         {msg ? (
           <button onClick={refresh}>Start new game</button>
