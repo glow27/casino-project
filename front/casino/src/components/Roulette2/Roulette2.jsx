@@ -14,7 +14,6 @@ import chips from './chips.png';
 import beer from './beer.png';
 import rock from './rock.png';
 
-import { Alert } from 'react-bootstrap';
 
 import { plusPoints, minusPoints } from '../../redux/actionCreator';
 
