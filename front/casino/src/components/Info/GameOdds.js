@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { TweenMax, TimelineLite, Power3 } from "gsap";
+
 export const GameOdds = ({ game }) => {
   const { team1, team2, odd1, odd2 } = game;
   let koef = useRef(null);

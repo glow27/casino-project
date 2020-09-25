@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
-import { TweenMax, TimelineLite, Power3 } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { TweenMax, TimelineLite, Power3 } from 'gsap';
 
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../redux/actionCreator';
 
@@ -11,8 +11,6 @@ function Login() {
   const dispatch = useDispatch();
   const history = useHistory();
   const [error, setError] = useState(['Please login!', 'white']);
-  const location = useLocation();
-  console.log(history);
 
   const handleClick = async (e) => {
     e.preventDefault();
