@@ -7,10 +7,10 @@ import casinoRouter from './routes/casino.js';
 const app = express();
 
 middleWare(app);
-app.use((req, res, next) => {
-  console.log(req.user);
-  next()
-})
+// app.use((req, res, next) => {
+//   console.log(req.user);
+//   next()
+// })
 
 app.use('/login', loginRouter);
 app.use('/casino', casinoRouter);

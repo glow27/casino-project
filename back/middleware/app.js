@@ -17,7 +17,7 @@ const middleWare = (app) => {
 
   const MongoStore = connectMongo(session);
   
-  mongoose.connect('mongodb://localhost/Finale', {
+  mongoose.connect(process.env.DB_KEY, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
