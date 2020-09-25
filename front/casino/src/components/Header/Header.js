@@ -12,7 +12,7 @@ const Header = ({ history }) => {
   const name = useSelector(state => state.user.name);
   const dispatch = useDispatch();
   const [reklama, setReklama] = useState([]);
-
+  
   const [state, setState] = useState({
     initial: false,
     clicked: null,
