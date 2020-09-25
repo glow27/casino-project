@@ -92,11 +92,12 @@ function Craps() {
         </p>
       </div>
       <div>
+        <div style={{height: '40px'}}>
         {msg && <h2>{msg}</h2>}
-
+        </div>
         <div><h4>The point: {point}</h4></div>
         <div><h5>Your roll score: {userScore}</h5></div>
-        <div>
+        <div style={{height: '120px'}}>
           <img src={pictures[dice1 -1]}/>  <img src={pictures[dice2 -1]}/>
         </div>
         {msg ? (
