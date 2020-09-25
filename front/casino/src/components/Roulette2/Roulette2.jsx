@@ -139,18 +139,19 @@ function Roulette() {
             }}
             class="btn btn-warning"
             onClick={() => {
-              if (trigger3) {
-                dispatch(minusPoints(10));
-                setTrigger3(false);
-              }
+              if (points >= 10) {
+                if (trigger3) {
+                  dispatch(minusPoints(10));
+                  setTrigger3(false);
+                }
 
-              setTrigger(true);
-              dispatch(spinRoulette());
-              if (trigger2) {
-                dispatch(minusPoints(10));
-              }
-              if (points < 0) {return (
-                alert('Take a microloan!'))
+                setTrigger(true);
+                dispatch(spinRoulette());
+                if (trigger2) {
+                  dispatch(minusPoints(10));
+                }
+              } else if(points < 10) {
+                setResult('You dont have enough chips')
               }
             }}
           >

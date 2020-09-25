@@ -23,7 +23,7 @@ const Info = () => {
       <div >
       
           <div style={{textAlign: 'center', fontFamily: 'Play', fontSize: '40px', color: 'white'}}>Closest EPL matches</div>
-          <div style={{textAlign: 'center', fontFamily: 'Play', fontSize: '20px', color: 'white'}}>We guarantee that you will earn big money with us... but we dont that you can lose.</div>
+          <div style={{textAlign: 'center', fontFamily: 'Play', fontSize: '20px', color: 'white'}}>We guarantee that you will earn big money with us, but sometimes its okey to lose.</div>
           <div style={{textAlign: 'center', fontFamily: 'Play', fontSize: '20px', color: 'white'}}>{data === false ? <Spinner1/> : null}</div>
           
         <div>
