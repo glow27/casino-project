@@ -35,8 +35,8 @@ function Games() {
           <img src={button} alt="slot" />
         </Link>
       </div>
-      <div>
-        <div>
+      <div  style={{display: 'flex', justifyContent: 'space-evenly'}}>
+        
           <div
             style={{
               
@@ -50,7 +50,7 @@ function Games() {
                >
             <img style={{ width: "400px" }} src={dice} alt="slot" />
           </div>
-        </div>
+        
         <Link
           style={{
             position: "absolute",
