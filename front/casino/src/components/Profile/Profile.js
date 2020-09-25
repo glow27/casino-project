@@ -18,7 +18,7 @@ export const Profile = () => {
             <div style={{ color: 'white', fontFamily: 'Play', fontSize: '20px' }}>Fill in URL to add your profile picture.</div>
             <input onChange={(e) => setInput(e.target.value)} type='text'></input>
             <button class='btn btn-secondary btn-lg btn-success' onClick={() => { dispatch(addPic(input)) }}>Load picture</button>
-            <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', marginTop: '150px' }}>
+            <div style={{ display: "flex", flexDirection: 'row', justifyContent: 'space-between', marginTop: '50px' }}>
                 <div style={{ color: 'white', fontFamily: 'Play', fontSize: '20px'}}>Your chips:</div>
                 <div style={{ color: 'white', fontFamily: 'Play', fontSize: '20px' }}>{points}</div>
             </div>
