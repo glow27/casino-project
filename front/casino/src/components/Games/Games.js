@@ -7,9 +7,9 @@ function Games() {
   return (
     <>
       {" "}
-      <div>
-        <div>
-          <div
+      <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
+        
+           <div
             style={{
               borderwidth: "thin",
               width: "100%",
@@ -22,8 +22,8 @@ function Games() {
                >
             <img style={{ width: "500px" }} src={slot} alt="slot" />
           </div>
-        </div>
-        <Link
+        
+           <Link
           style={{
             position: "absolute",
             top: "420px",
@@ -43,7 +43,7 @@ function Games() {
               width: "100%",
               position: "relative",
               top: "60px",
-              left: "360px",
+              left: "550px",
               
             }}
             className="dice"
@@ -53,16 +53,16 @@ function Games() {
         
         <Link
           style={{
-            position: "absolute",
-            top: "420px",
-            right: "200px",
+            position: "relative",
+            top: "320px",
+            right: "-190px",
             zIndex: 0,
           }}
           to="/casino/craps"
         >
           <img src={button} alt="slot" />
         </Link>
-      </div>
+    </div>
 
       
     </>
