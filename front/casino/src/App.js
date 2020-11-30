@@ -1,19 +1,20 @@
-import React from "react";
-import "./App.scss";
+import React from 'react';
+import './App.scss';
 
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Header from "./components/Header/Header";
-import Login from "./components/Login/Login";
-import Home from "./components/Home/Home";
-import Welcome from './components/Welcome/welcome'
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Header from './components/Header/Header';
+import Login from './components/Login/Login';
+import Home from './components/Home/Home';
+import Welcome from './components/Welcome/welcome';
 import Demo from './components/Demo/Demo';
 import Info from './components/Info/Info';
-import Registration from "./components/Registration/Registration";
-import Roulette2 from "./components/Roulette2/Roulette2";
-import {Profile} from './components/Profile/Profile'
+import Registration from './components/Registration/Registration';
+import Roulette2 from './components/Roulette2/Roulette2';
+import { Profile } from './components/Profile/Profile';
+import Craps from './components/Craps/craps';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import Roulette from "./components/Roulette/Roulette";
+import Games from './components/Games/Games';
 
 function App() {
   return (
@@ -24,32 +25,42 @@ function App() {
           <div className="wrapper">
             <div className="home">
               <Switch>
-                <Route exact path="/" component={Home} />
-
-                <Route exact path="/demo" component={Demo} />
-
-
-                <Route exact path="/lk" component={Profile} />
-                
-                <Route path="/welcome">
-                  <Welcome/>
+                <Route path="/demo">
+                  <Demo />
                 </Route>
-                <PrivateRoute exact path="/casino/soccerbet">
-                  <Info/>
+                <PrivateRoute path="/lk">
+                  <Profile />
                 </PrivateRoute>
-                <PrivateRoute exact path="/roulette">
-                  <Roulette2/>
+                <Route path="/welcome">
+                  <Welcome />
+                </Route>
+                <PrivateRoute  path="/casino/soccerbet">
+                  <Info />
                 </PrivateRoute>
-                <Route exact path="/login" component={Login} />
-                <Route exact path="/registration" component={Registration} />
+                <PrivateRoute path="/casino/craps">
+                  <Craps />
+                </PrivateRoute>
+                <PrivateRoute  path="/roulette">
+                  <Roulette2 />
+                </PrivateRoute>
+                <Route path="/games">
+                  <Games />
+                </Route>
+                <Route  path="/login">
+                  <Login />
+                </Route>
+                <Route path="/registration">
+                  <Registration />
+                </Route>
+                <Route exact path="/">
+                  <Home />
+                </Route>
               </Switch>
             </div>
           </div>
         </div>
       </div>
     </BrowserRouter>
-
-
   );
 }
 

@@ -1,38 +1,71 @@
+import React, { useEffect, useState } from 'react';
 
-import React, { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
-import { GameOdds } from "./GameOdds";
-import style from "./Info.module.css";
-
+import { GameOdds } from './GameOdds';
+import { Spinner1 } from '../Spinners/spinner1';
 
 const Info = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(false);
 
-  useEffect(async () => {
+  useEffect(() => {
+    (async () => {try {
 
-    const response = await fetch("/casino/soccerodds");
-    if (response.status === 401) {
-      return <Redirect path="/" />;
-    }
-    const result = await response.json();
-    setData(result);
+      const response = await fetch('/casino/soccerodds');
+      if (response.status === 401) {
+        setData([{ team1: 'You need to pay for the subscription' }]);
+      }
+      const result = await response.json();
+      setData(result);
+    } catch(e) {
+      console.log(e);
+    }})()
   }, []);
+
   return (
     <>
-      <div >
+      <div>
+        <div
+          style={{
+            textAlign: 'center',
+            fontFamily: 'Play',
+            fontSize: '40px',
+            color: 'white',
+          }}
+        >
+          Closest EPL matches
+        </div>
+        <div
+          style={{
+            textAlign: 'center',
+            fontFamily: 'Play',
+            fontSize: '20px',
+            color: 'white',
+          }}
+        >
+          We guarantee that you will earn big money with us, but sometimes its
+          okey to lose.
+        </div>
+        <div
+          style={{
+            textAlign: 'center',
+            fontFamily: 'Play',
+            fontSize: '20px',
+            color: 'white',
+          }}
+        >
+          {data === false ? <Spinner1 /> : null}
+        </div>
+
         <div>
-          <ul className={style.info}>
+          <ul>
             {data && data.data.map((el, i) => <GameOdds key={i} game={el} />)}
           </ul>
         </div>
-        {/* <div className="sport">
-          <h1>Ближайшие матчи Aпл</h1>
-          <h2>Результат гарантирован! Можно ставить хату!</h2>
-        </div> */}
       </div>
     </>
   );
 };
 
-
 export default Info;
+
+// <h1 style={{textAlign: 'center'}}>Closest EPL matches</h1>
+//           <h2 style={{textAlign: 'center'}}>Результат гарантирован! Можно ставить хату!</h2>

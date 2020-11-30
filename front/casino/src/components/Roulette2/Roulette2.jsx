@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { spinRoulette } from '../../redux/actionCreator';
+import { spinRoulette, fakeRoulette } from '../../redux/actionCreator';
 import cherry from './cherry.png';
 import cubes from './cubes.png';
 import diamond from './diamond.png';
@@ -8,18 +8,41 @@ import lemon from './lemon.png';
 import seven from './seven.png';
 import whoreMachine from './slutMachine.png';
 import pumpkin from './pumpkin.png';
+import inc from './inc.png';
+import pharaon from './pharaon.png';
+import chips from './chips.png';
+import beer from './beer.png';
+import rock from './rock.png';
+
+
 import { plusPoints, minusPoints } from '../../redux/actionCreator';
 
 function Roulette() {
   const dispatch = useDispatch();
-  const spinStore = useSelector((state) => state.roulette.spines);
+  const spinStore = useSelector(state => state.roulette.spines);
+  const points = useSelector(state => state.user.points);
 
-  const pictures = [cherry, cubes, diamond, lemon, seven, pumpkin];
+  const pictures = [
+    cherry,
+    cubes,
+    diamond,
+    lemon,
+    seven,
+    pumpkin,
+    pharaon,
+    inc,
+    chips,
+    beer,
+    rock,
+  ];
 
   let [random, setRandom] = useState([1, 1, 1]);
   const [trigger, setTrigger] = useState(false);
   let [result, setResult] = useState('');
   const [trigger2, setTrigger2] = useState(false);
+  const [trigger3, setTrigger3] = useState(true);
+  const [trigger4, setTrigger4] = useState(true);
+
   let num = 0;
   let i = 0;
 
@@ -27,13 +50,12 @@ function Roulette() {
     if (trigger) {
       var interval = setInterval(() => {
         i += 1;
-        // console.log(random);
         setRandom(
           () =>
             (num = [
-              Math.floor(Math.random() * (6 - 1 + 1)) + 1,
-              Math.floor(Math.random() * (6 - 1 + 1)) + 1,
-              Math.floor(Math.random() * (6 - 1 + 1)) + 1,
+              Math.round(1 - 0.5 + Math.random() * (11 - 1 + 1)),
+              Math.round(1 - 0.5 + Math.random() * (11 - 1 + 1)),
+              Math.round(1 - 0.5 + Math.random() * (11 - 1 + 1)),
             ])
         );
         if (i >= 4) {
@@ -48,9 +70,21 @@ function Roulette() {
   }, [trigger]);
 
   useEffect(() => {
-    setTimeout(function run() {
-      setResult(spinNum(spinStore));
-    }, 4000);
+    if (trigger4) {
+      setTimeout(function run() {
+        dispatch(fakeRoulette());
+        setResult('Sorry, you lost!');
+        setTrigger4(false);
+      }, 4000);
+    }
+  }, [spinStore]);
+
+  useEffect(() => {
+    if (trigger4 === false) {
+      setTimeout(function run() {
+        setResult(spinNum(spinStore));
+      }, 4000);
+    }
   }, [spinStore]);
 
   function spinNum(rand) {
@@ -104,10 +138,19 @@ function Roulette() {
             }}
             class="btn btn-warning"
             onClick={() => {
-              setTrigger(true);
-              dispatch(spinRoulette());
-              if (trigger2) {
-                dispatch(minusPoints(10));
+              if (points >= 10) {
+                if (trigger3) {
+                  dispatch(minusPoints(10));
+                  setTrigger3(false);
+                }
+
+                setTrigger(true);
+                dispatch(spinRoulette());
+                if (trigger2) {
+                  dispatch(minusPoints(10));
+                }
+              } else if(points < 10) {
+                setResult('You dont have enough chips')
               }
             }}
           >

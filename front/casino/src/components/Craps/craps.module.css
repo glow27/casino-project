@@ -1,0 +1,12 @@
+.main {
+  display: flex;
+  color: 'white';
+}
+
+.rules {
+  text-align: left;
+}
+
+.game {
+  text-align: right;
+}

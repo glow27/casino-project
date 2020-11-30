@@ -9,9 +9,10 @@ import { plusPoints } from '../../redux/actionCreator';
 const Header = ({ history }) => {
   const auth = useSelector((state) => state.user.auth);
   const points = useSelector((state) => state.user.points);
+  const name = useSelector(state => state.user.name);
   const dispatch = useDispatch();
   const [reklama, setReklama] = useState([]);
-
+  
   const [state, setState] = useState({
     initial: false,
     clicked: null,
@@ -69,9 +70,9 @@ return (
         <div className="inner-header">
           <div className="logo">
             <Link to="/" style={{ fontFamily: 'Play'}}>MAIN</Link>
-            {auth && <p style={{
+            {auth && <h5 style={{
             color: 'white', fontFamily: 'Play'
-          }}>Your chips: {points}</p>}
+          }}>{name}, your chips: {points}</h5>}
           </div>
            <div>
               {/* <a href='https://elbrusboot.camp/' target="_blank" onClick={() => {dispatch(plusPoints(5))}}><img height="75px" width="600px" src={advert} alt="reklama"></img></a> */}
@@ -79,7 +80,7 @@ return (
                 href={reklama[1]}
                 target="_blank"
                 onClick={() => {
-                  dispatch(plusPoints(2));
+                  dispatch(plusPoints(3));
                 }}
               >
                 <img
@@ -87,6 +88,7 @@ return (
                   width="600px"
                   src={reklama[0]}
                   alt="reklama"
+                  style={{borderRadius: '10px'}}
                 ></img>
               </a>
             </div>
